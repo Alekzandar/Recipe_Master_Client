@@ -1,4 +1,6 @@
-# RecipeMasterClient
+# Recipe Master Client-Side Web Application Project
+Recipe Master Client 
+Aleksandar Antonov; Jacky Li; Tawbin Nawshin; Maressa Reyes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
