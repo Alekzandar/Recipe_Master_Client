@@ -12,21 +12,21 @@ import { of } from 'rxjs';
 
 
 export class AleksandarViewComponent implements OnInit {
-  recipesList: Observable<Recipe[]>;
-  private respRecipes;
+  private recipesObs: Observable<Recipe[]>;
+  private recipesList: Recipe[];
   
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-   // let headers = new HttpHeaders();
-   // headers = headers.set('X-RapidAPI-Host', 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com').set('X-RapidAPI-Key','653c9ff2demsh033c83b0a49033ep1855d1jsnaebe6c7b70e9');
   
   }
 
   loadRecipes():  void {
+
+
     this.recipeService.getRecipes().subscribe(
-      (data) => {
-        this.recipesList = of(data); 
+      resp => {
+        this.recipesList = resp as Recipe[]; 
         console.log(this.recipesList);
       }
     );

@@ -1,14 +1,11 @@
 <p>
-  Hello Recipe World!
+  Hello Recipes!
 </p>
-<ul class = "recipes">
-    <li *ngFor="let hero of recipes">
-        <a routerLink="/detail/{{hero.id}}">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-        <button class="delete" title="delete hero"
-          (click)="delete(hero)">x</button>
-      </li>
+<h3>Recipes Received from Preloaded Query:</h3>
+<ul class = "recipes" *ngFor = "let recipe of recipesList">
+  <div *ngIf = "recipesList?.length > 0">
+  <li>{{recipe.title}}</li>
+</div>
 
 </ul>
 <button (click)= "loadRecipes()">Load Recipes</button>

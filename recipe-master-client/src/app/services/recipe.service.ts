@@ -23,7 +23,7 @@ export class RecipeService {
   recipeUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=apples%2Cflour%2Csugar';
 
 
-  getRecipes():  Observable<Recipe[]> {
+  getRecipes() {
     return this.http.get<Recipe[]>(this.recipeUrl, recipeHeaders);
       
   }
