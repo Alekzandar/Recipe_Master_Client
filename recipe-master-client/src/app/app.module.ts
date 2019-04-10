@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import * as angular from 'angular';
 
 import { AppComponent } from './app.component';
 import { TawbinViewComponent } from './tawbin-view/tawbin-view.component';
@@ -7,6 +8,8 @@ import { JackyViewComponent } from './jacky-view/jacky-view.component';
 import { MaressaViewComponent } from './maressa-view/maressa-view.component';
 import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.component';
 import { AppRoutingModule } from './app-routing.module';
+
+
 
 @NgModule({
   declarations: [
