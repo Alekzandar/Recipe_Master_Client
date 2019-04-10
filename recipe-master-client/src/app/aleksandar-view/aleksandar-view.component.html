@@ -1,3 +1,11 @@
 <p>
-  aleksandar-view works!
+  Hello Recipes!
 </p>
+<h3>Recipes Received from Preloaded Query:</h3>
+<ul class = "recipes" *ngFor = "let recipe of recipesList">
+  <div *ngIf = "recipesList?.length > 0">
+  <li>{{recipe.title}}</li>
+</div>
+
+</ul>
+<button (click)= "loadRecipes()">Load Recipes</button>

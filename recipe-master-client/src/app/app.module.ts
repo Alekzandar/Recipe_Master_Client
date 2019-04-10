@@ -7,6 +7,7 @@ import { JackyViewComponent } from './jacky-view/jacky-view.component';
 import { MaressaViewComponent } from './maressa-view/maressa-view.component';
 import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
