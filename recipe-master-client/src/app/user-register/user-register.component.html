@@ -1,32 +1,80 @@
 <div class="container">
-    <div class="jumbotron">
-        <h3 style = "text-align: center" >User Registration</h3>
-    </div>
-    <form class="col-lg-12">
-      <div class="row">
-          <div class="col-lg-12">
-          <label>Enter First Name :</label><br>
-          <input type="text" name="fname" placeholder="firstname" #FirstName="ngModel" [(ngModel)]="user.FirstName" />
-        </div><br>
-        <div class="col-lg-12">
-          <label>Enter Last Name :</label><br>
-          <input type="text" name="lname" placeholder="lastname" #LastName="ngModel" [(ngModel)]="user.LastName" />
-        </div><br>
-        <div class="col-lg-12">
-          <label>Enter Email Address :</label><br>
-          <input type="text" name="email" placeholder="email" #Email="ngModel" [(ngModel)]="user.Email" />
-        </div><br>
-        <div class="col-lg-12">
-          <label>Enter Username* :</label><br>
-          <input type="text" name="username" placeholder="username" #UserName="ngModel" [(ngModel)]="user.UserName" />
-        </div><br>
-        <div class="col-lg-12">
-          <label>Enter Password* :</label><br>
-          <input type="password" name="password" placeholder="password" #Password="ngModel" [(ngModel)]="user.Password" />
-        </div>
-      </div><br>
-      <div class="col-lg-12">
-        <button type="submit" id="register" class="btn-large btn-submit">Submit</button>
-      </div>
-    </form>
+  <div class="jumbotron">
+    <h3 style="text-align: center">User Registration Form</h3>
   </div>
+  <form #registerForm="ngForm">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="fnameControl.invalid">
+            <label for="firstName" class="control-label">First Name :</label><br>
+            <input type="text" id="fname" name="fname" placeholder="firstname" #fnameControl="ngModel" [(ngModel)]="fname" required /><br>
+              <span class="help-block" *ngIf= "fnameControl.invalid">
+                 required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="lnameControl.invalid">
+            <label for= "lastName" class="control-label">Last Name :</label><br>
+            <input type="text" id="lname" name="lname" placeholder="lastname" #lnameControl="ngModel" [(ngModel)]="lname" required />
+              <span class="help-block" *ngIf= "lnameControl.invalid">
+                required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="emailControl.invalid">
+            <label for= "email" class="control-label">Email :</label><br>
+            <input type="text" id="email" name="email" placeholder="email" #emailControl="ngModel" [(ngModel)]="email" required />
+              <span class="help-block" *ngIf= "emailControl.invalid">
+                required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="ageControl.invalid">
+            <label for= "age" class="control-label">Age :</label><br>
+            <input type="number" id="age" name="age" #ageControl="ngModel" [(ngModel)]="age" required />
+            <span class="help-block" *ngIf= "ageControl.invalid">
+              required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="usernameControl.invalid">
+            <label for= "userName" class="control-label">Username* :</label><br>
+            <input type="text" id="username" name="username" placeholder="username" #usernameControl="ngModel"
+          [(ngModel)]="username" required />
+              <span class="help-block" *ngIf= "usernameControl.invalid">
+              required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <div class="form-group" [class.has-error]="passwordControl.invalid">
+            <label for= "password" class="control-label">Password* :</label><br>
+            <input type="password" id="password" name="password" placeholder="password" #passwordControl="ngModel"
+          [(ngModel)]="password" required />
+              <span class="help-block" *ngIf= "passwordControl.invalid">
+              required field!
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+          <input type="checkbox" id="checkAgree" value="check" required />
+          <label>Agree to Join</label>
+        </div>
+        <br>
+        <div class="col-sm-12">
+        <button type="submit" class="btn-large btn-submit"
+          (click)="submit()">Submit</button>
+        </div>
+    </div>
+  </form>
+</div>
