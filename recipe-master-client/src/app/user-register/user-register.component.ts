@@ -42,19 +42,19 @@ onSubmit(u : User){
   }
 
   submit(){
-    if(age.value < 10 || age.value > 120){
+    if(this.age < 10 || this.age > 120){
       console.log("NOPE");
     }
-    console.log("FIRST NAME: " + fname.value);
-    console.log("FIRST NAME TYPE: " + fname.type);
-    console.log("PASSWORD: " + password.value)
+    console.log("FIRST NAME: " + this.fname);
+    console.log("FIRST NAME TYPE: " + this.fname);
+    console.log("PASSWORD: " + this.password)
     u: User;
-    this.u.FirstName = fname.value;
-    this.u.LastName = lname.value;
-    this.u.Email = email.value;
-    this.u.Username = username.value;
-    this.u.Age = age.value;
-    this.u.Password = password.value;
+    this.u.FirstName = this.fname;
+    this.u.LastName = this.lname;
+    this.u.Email = this.email;
+    this.u.UserName = this.username;
+    this.u.Age = this.age;
+    this.u.Password = this.password
     console.log("USER OBJECT PASSWORD: " + this.u.Password);
     let json = JSON.stringify(this.u);
     console.log("USER OBJECT IS NOW JSON:" + json);
