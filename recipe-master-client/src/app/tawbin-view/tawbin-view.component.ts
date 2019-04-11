@@ -13,7 +13,7 @@ export class TawbinViewComponent implements OnInit {
   private randRecipeObs: Observable <RandomRecipe[]>;
   private randRecipeResponse: RandomRecipe[];
   private randRecipeList: RandomRecipe[];
-  private myJson;
+  //private myJson;
 
 
   constructor(private randRecipeService: RandomRecipeService) { }

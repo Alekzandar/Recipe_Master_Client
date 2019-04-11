@@ -1,16 +1,19 @@
-<p>
-  Recipe of the Day!
-</p>
+<div class="container">
+  <div class="jumbotron">
+    <p>
+      Recipe of the Day!
+    </p>
 
-<h3>Try out our Recipe of the Day...</h3>
-  <div *ngIf = "randRecipeList">
-    <h2>Todays Recipe...</h2>
-  <h3>{{"Recipe Title: "+ randRecipeList[0][0].title}}</h3>
-  <h3>{{"Preparation Time: "+randRecipeList[0][0].readyInMinutes}}</h3>
-  <h3>{{"Serving Size: "+randRecipeList[0][0].servings}}</h3>
-  <h3>{{"Instructions: "+randRecipeList[0][0].instructions}}</h3>
-  
+    <h3>Try out our Recipe of the Day...</h3>
+    <div *ngIf="randRecipeList">
+      <h2>Todays Recipe...</h2>
+      <h3>Recipe Title: {{ randRecipeList[0][0].title}}</h3>
+      <h3>Preparation Time: {{ randRecipeList[0][0].readyInMinutes}}</h3>
+      <h3>Serving Size: {{ randRecipeList[0][0].servings}}</h3>
+      <h3>Instructions: {{ randRecipeList[0][0].instructions}}</h3>
+
+    </div>
+
+    <button (click)="loadRandomRecipes()">Load Recipe of the Day</button>
+  </div>
 </div>
-
-<button (click)= "loadRandomRecipes()">Load Recipe of the Day</button>
-

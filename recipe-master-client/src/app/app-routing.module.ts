@@ -7,13 +7,15 @@ import { MaressaViewComponent }      from './maressa-view/maressa-view.component
 import { TestServerComponent }      from './test-server/test-server.component';
 
 
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 const routes: Routes = [
   { path: 'tawbin', component: TawbinViewComponent },
   { path: 'aleksandar', component: AleksandarViewComponent },
   { path: 'jacky', component: JackyViewComponent },
   { path: 'maressa', component: MaressaViewComponent },
-  { path: 'test', component: TestServerComponent }
+  { path: 'test', component: TestServerComponent },
+  { path: 'registration', component: UserRegisterComponent }
 ];
 
 @NgModule({

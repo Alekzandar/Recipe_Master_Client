@@ -9,6 +9,8 @@ import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.compo
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { TestServerComponent } from './test-server/test-server.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { TestServerComponent } from './test-server/test-server.component';
     JackyViewComponent,
     MaressaViewComponent,
     AleksandarViewComponent,
-    TestServerComponent
+    TestServerComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
