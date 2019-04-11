@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="jumbotron">
+        <h3 style = "text-align: center" >User Registration</h3>
+    </div>
+    <form class="col-lg-12">
+      <div class="row">
+          <div class="col-lg-12">
+          <label>Enter First Name :</label><br>
+          <input type="text" name="fname" placeholder="firstname" #FirstName="ngModel" [(ngModel)]="user.FirstName" />
+        </div><br>
+        <div class="col-lg-12">
+          <label>Enter Last Name :</label><br>
+          <input type="text" name="lname" placeholder="lastname" #LastName="ngModel" [(ngModel)]="user.LastName" />
+        </div><br>
+        <div class="col-lg-12">
+          <label>Enter Email Address :</label><br>
+          <input type="text" name="email" placeholder="email" #Email="ngModel" [(ngModel)]="user.Email" />
+        </div><br>
+        <div class="col-lg-12">
+          <label>Enter Username* :</label><br>
+          <input type="text" name="username" placeholder="username" #UserName="ngModel" [(ngModel)]="user.UserName" />
+        </div><br>
+        <div class="col-lg-12">
+          <label>Enter Password* :</label><br>
+          <input type="password" name="password" placeholder="password" #Password="ngModel" [(ngModel)]="user.Password" />
+        </div>
+      </div><br>
+      <div class="col-lg-12">
+        <button type="submit" id="register" class="btn-large btn-submit">Submit</button>
+      </div>
+    </form>
+  </div>

@@ -8,6 +8,8 @@ import { MaressaViewComponent } from './maressa-view/maressa-view.component';
 import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule }    from '@angular/common/http';
     TawbinViewComponent,
     JackyViewComponent,
     MaressaViewComponent,
-    AleksandarViewComponent
+    AleksandarViewComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
