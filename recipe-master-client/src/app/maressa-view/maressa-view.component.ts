@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maressa-view.component.css']
 })
 export class MaressaViewComponent implements OnInit {
-
+  private username: string;
+  private password: string;
   constructor() { }
 
   ngOnInit() {
