@@ -1,3 +1,32 @@
 <p>
   jacky-view works!
 </p>
+
+<ul>
+  <li>Ingredients {{ names|lowercase }} </li>
+</ul>
+<br>
+<input type="text" [(ngModel)]="names">
+
+
+<!-- <div ng-controller="Controller">
+  <form name="Ingredients">
+    <label>Names:
+      <input type="text" name="names"
+             ng-model="ingredient.name"
+             ng-model-options="{ getterSetter: true }" />
+    </label>
+  </form>
+  <pre>ingredient name = <span ng-bind="ingredient.name()"></span></pre>
+</div> -->
+
+
+<a href="https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients={{ names }}" role="tab" data-toggle="tab">Search</a>
+
+<ul class = "recipes" *ngFor = "let recipe of recipesList">
+  <div *ngIf = "recipesList?.length > 0">
+  <li>{{recipe.title}}</li>
+</div>
+
+</ul>
+<button (click)= "loadRecipes()">Load Recipes</button>
