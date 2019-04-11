@@ -1,31 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import * as angular from 'angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { $ } from 'protractor';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-maressa-view',
   templateUrl: './maressa-view.component.html',
-  styleUrls: ['./maressa-view.component.css'],
-
+  styleUrls: ['./maressa-view.component.css']
 })
 
 export class MaressaViewComponent implements OnInit {
 
-  username: string;
-  password: string;
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  'username': string;
+  'password': string;
   message: string;
+  'Recipe Master' : title;
+  /*loginForm = new FormGroup ({
+    username: new FormControl()
+  });*/
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if(this.loginForm.invalid) {
+      return;
+    }
+    this.loading = true;
+  }
 
   Users = [
-    { username: 'Example1', password: '123'}
-
+    { 'username': 'Example1', 'password': '123'},
+    { 'username': 'Example2', 'password': 'abc'}
   ];
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {
+
+  }
+
 
   checkIfEmpty(str: string ){
     if(str.length == 0 || str == null){
@@ -36,15 +58,13 @@ export class MaressaViewComponent implements OnInit {
       this.message='';
     }
   }
-
+}
+/*
   login(){
       this.getUsers();
   }
 
   getUsers(){
-    //this.userService.getUsers().subscribe(
-      //data => {
-        //this.users = data;
       var app = angular.module('myApp', []);
       app.controller('formCtrl', function($scope) {
         {{ $scope.Form.InputUsername.$valid }};
@@ -52,7 +72,7 @@ export class MaressaViewComponent implements OnInit {
         $scope.master={username: "testuser", password: "testpass"};
         $scope.reset=function() {
           $scope.user = angular.copy($scope.master);
-          //checkIfEmpty();
+          //checkIfEmpty();ls
         };
         $scope.reset();
       });

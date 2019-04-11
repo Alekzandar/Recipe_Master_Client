@@ -8,7 +8,8 @@ import { JackyViewComponent } from './jacky-view/jacky-view.component';
 import { MaressaViewComponent } from './maressa-view/maressa-view.component';
 import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
