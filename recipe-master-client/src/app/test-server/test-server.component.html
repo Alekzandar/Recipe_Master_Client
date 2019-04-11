@@ -1,0 +1,15 @@
+<p>
+  Hi Team - Use this component, testdemoservice, and testserverdemo.ts (Confusing naming, I know) 
+  as reference for sending requests to our server.
+</p>
+<input type="text" [(ngModel)]="inputText" placeholder="name">
+<br>
+<button (click)= "sendTest()">Send(Push) Test Obj</button>
+<hr>
+<ul class = "tests" *ngFor = "let test of testList">
+  <div *ngIf = "testList?.length > 0">
+  <li>{{test.name}}</li>
+</div>
+
+</ul>
+<button (click)= "loadTest()">Load(Get) Test Objs</button>

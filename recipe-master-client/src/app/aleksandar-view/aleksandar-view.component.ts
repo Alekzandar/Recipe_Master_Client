@@ -22,8 +22,6 @@ export class AleksandarViewComponent implements OnInit {
   }
 
   loadRecipes():  void {
-
-
     this.recipeService.getRecipes().subscribe(
       resp => {
         this.recipesList = resp as Recipe[]; 
