@@ -9,22 +9,23 @@ import { Observable } from 'rxjs';
 const recipeHeaders = {
   headers: new HttpHeaders({
     "X-RapidAPI-Host" : "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "653c9ff2demsh033c83b0a49033ep1855d1jsnaebe6c7b70e9"
+    "X-RapidAPI-Key": "7b8987c75emsh31f353e878d74e2p1e424fjsn5ffa201e13e5"
   })
 };
 
 @Injectable({
   providedIn: 'root'
 })
-export class RecipeService {
+export class QueryService {
 
   constructor(private http: HttpClient) { }
 
-  recipeUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=apples%2Cflour%2Csugar';
+ 
 
 
-  getRecipes() {
-    return this.http.get<Recipe[]>(this.recipeUrl, recipeHeaders);
+  getRecipes(recipeUrl) {
+    console.log("IN SERVICE :" + recipeUrl + " with headers: " + recipeHeaders);
+    return this.http.get<Recipe[]>(recipeUrl, recipeHeaders);
       
   }
 }

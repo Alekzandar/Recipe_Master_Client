@@ -7,6 +7,7 @@
 </ul>
 <br>
 <input type="text" [(ngModel)]="names">
+<button (click)="nameLoad()">Click me!</button>
 
 
 <!-- <div ng-controller="Controller">
@@ -26,9 +27,23 @@ control = new FormControl([ 'carrot' ]);-->
 <a href="https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients={{ names }}" role="tab" data-toggle="tab">Search</a>
 
 <ul class = "recipes" *ngFor = "let recipe of recipesList">
-  <div *ngIf = "recipesList?.length > 0">
+<div *ngIf = "recipesList?.length > 0">
   <li>{{recipe.title}}</li>
+  <li><img [src]="recipe.image" /></li>
+  <li>Missing Ingredients: {{recipe.missedIngredientCount}}</li>
+  <article *ngFor="let missed of recipe.missedIngredients; let i = index"> 
+      <li>{{objectKeys(missed)}}</li>
+
+  </article>
+   <!-- <article *ngFor="let name of recipe.missedIngredients.missed; let i = index"> 
+        <li>{{missed[i]}}</li>
+      </article>
+      -->
+  <!--<ul class = "recipes" *ngFor = "let missedIngredients of recipe.missedIngredients"></ul>
+  <ul class = "recipes" *ngFor = "let name of missedIngredients?.name"></ul>
+  <li>{{name}}</li>-->
+
+
 </div>
 
 </ul>
-<button (click)= "loadRecipes()">Load Recipes</button>
