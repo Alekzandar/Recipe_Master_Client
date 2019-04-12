@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import * as angular from 'angular';
-
 import { AppComponent } from './app.component';
 import { TawbinViewComponent } from './tawbin-view/tawbin-view.component';
 import { JackyViewComponent } from './jacky-view/jacky-view.component';
@@ -10,6 +8,7 @@ import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.compo
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -18,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     TawbinViewComponent,
     JackyViewComponent,
     MaressaViewComponent,
-    AleksandarViewComponent
+    AleksandarViewComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
