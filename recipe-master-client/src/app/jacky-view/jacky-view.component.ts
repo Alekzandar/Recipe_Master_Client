@@ -3,6 +3,8 @@ import { RecipeService } from './../services/recipe.service';
 import { Observable } from 'rxjs';
 import { Recipe } from '../objects/recipe';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
 	selector: 'app-jacky-view',
@@ -13,8 +15,17 @@ import { of } from 'rxjs';
 export class JackyViewComponent implements OnInit {
 	private recipesObs: Observable<Recipe[]>;
 	private recipesList: Recipe[];
+	nameLoad(): void{
 
+	}
 	names = '';
+	if (names) {
+		names.replace(this.regex, this.add);
+		return names;
+	}
+	regex = /,/;
+	 
+	add = '%2C';
 	constructor(private recipeService: RecipeService) { }
 
 	ngOnInit() {

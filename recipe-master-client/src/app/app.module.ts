@@ -9,14 +9,13 @@ import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.compo
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     TawbinViewComponent,
     JackyViewComponent,
     MaressaViewComponent,
-    AleksandarViewComponent
+    AleksandarViewComponent,
   ],
   imports: [
     BrowserModule,
