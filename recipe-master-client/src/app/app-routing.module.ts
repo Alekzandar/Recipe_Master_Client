@@ -6,6 +6,7 @@ import { JackyViewComponent }      from './jacky-view/jacky-view.component';
 import { MaressaViewComponent }      from './maressa-view/maressa-view.component';
 import { TestServerComponent }      from './test-server/test-server.component';
 
+import { MainViewComponent }      from './main-view/main-view.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'jacky', component: JackyViewComponent },
   { path: 'maressa', component: MaressaViewComponent },
   { path: 'test', component: TestServerComponent },
-  { path: 'registration', component: UserRegisterComponent }
+  { path: 'registration', component: UserRegisterComponent },
+  { path: 'main', component: MainViewComponent }
 ];
 
 @NgModule({

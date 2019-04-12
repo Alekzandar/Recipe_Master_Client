@@ -11,6 +11,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { TestServerComponent } from './test-server/test-server.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 
+import { MainViewComponent } from './main-view/main-view.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     MaressaViewComponent,
     AleksandarViewComponent,
     TestServerComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    MainViewComponent
   ],
   imports: [
     BrowserModule,
