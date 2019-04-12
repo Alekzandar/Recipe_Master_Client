@@ -4,13 +4,14 @@ import { TawbinViewComponent }      from './tawbin-view/tawbin-view.component';
 import { AleksandarViewComponent }      from './aleksandar-view/aleksandar-view.component';
 import { JackyViewComponent }      from './jacky-view/jacky-view.component';
 import { MaressaViewComponent }      from './maressa-view/maressa-view.component';
-
+import { MainViewComponent }      from './main-view/main-view.component';
 
 const routes: Routes = [
   { path: 'tawbin', component: TawbinViewComponent },
   { path: 'aleksandar', component: AleksandarViewComponent },
   { path: 'jacky', component: JackyViewComponent },
-  { path: 'maressa', component: MaressaViewComponent }
+  { path: 'maressa', component: MaressaViewComponent },
+  { path: 'main', component: MainViewComponent }
 ];
 
 @NgModule({

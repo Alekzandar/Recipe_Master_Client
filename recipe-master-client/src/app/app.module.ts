@@ -8,6 +8,7 @@ import { MaressaViewComponent } from './maressa-view/maressa-view.component';
 import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
+import { MainViewComponent } from './main-view/main-view.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule }    from '@angular/common/http';
     JackyViewComponent,
     MaressaViewComponent,
     AleksandarViewComponent,
+    MainViewComponent,
   ],
   imports: [
     BrowserModule,
