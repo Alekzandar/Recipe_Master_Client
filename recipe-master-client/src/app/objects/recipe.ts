@@ -4,5 +4,7 @@ export class Recipe {
     image: string;
     usedIngredientCount: number;
     missedIngredientCount: number;
+    missedIngredients;
+    usedIngredients;
     likes: number;
 }
