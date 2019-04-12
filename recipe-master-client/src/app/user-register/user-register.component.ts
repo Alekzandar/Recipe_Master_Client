@@ -1,18 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../objects/User';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
+import { of } from 'rxjs';
+
 
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']
 })
-
-
 export class UserRegisterComponent implements OnInit {
-  u: User = { FirstName : " ", LastName : ' ', Email : ' ', Age: 0, UserName: ' ', Password: ' '
+  private userObs: Observable <User[]>;
+  private userResponse: User[];
+  private userList: User[];
+
+  u: User = { 
+    FirstName :null, 
+    LastName : null, 
+    Email :null, 
+    Age: null, 
+    UserName: null, 
+    Password: null,
+    ErrorText:''
    }
+
   fname: string;
   lname: string;
   email: string;
@@ -20,43 +33,40 @@ export class UserRegisterComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor() { }
+  constructor(private registerService: UserRegisterService) { }
 
   ngOnInit() {
     
   }
 
-//validate the registration form on onSubmit
-onSubmit(u : User){
+  onSubmit(u : User){
     fname: u.FirstName;
     lname: u.LastName;
     email: u.Email;
-    age:u.Age;
+    age: u.Age;
     username: u.UserName;
     password: u.Password;
-    console.log("IN ON SUBMIT: " + u);
-    if (Object.values(u.FirstName) == Object.values(u.LastName)){
-      alert("First and Last name has to be different");
+    
+    if (u.FirstName!=null && u.LastName!=null && u.FirstName == u.LastName){
+      u.ErrorText = "Error";
       return false;
+    } 
+    
+    saveUser(): void {
+      this.userResponse.getUsers().subscribe(
+        resp => {
+          this.userResponse = resp as User[]; 
+          this.userList = Object.values(this.userResponse);
+          console.log(this.userList);
+        },
+        (error: any) => console.log(error);
+      );
     }
-  }
 
-  submit(){
-    if(age.value < 10 || age.value > 120){
-      console.log("NOPE");
-    }
-    console.log("FIRST NAME: " + fname.value);
-    console.log("FIRST NAME TYPE: " + fname.type);
-    console.log("PASSWORD: " + password.value)
-    u: User;
-    this.u.FirstName = fname.value;
-    this.u.LastName = lname.value;
-    this.u.Email = email.value;
-    this.u.Username = username.value;
-    this.u.Age = age.value;
-    this.u.Password = password.value;
-    console.log("USER OBJECT PASSWORD: " + this.u.Password);
-    let json = JSON.stringify(this.u);
-    console.log("USER OBJECT IS NOW JSON:" + json);
+    let jsonValue = JSON.stringify(this.u);
+    console.log(jsonValue);
+    alert('Form is Submitted Successfully');
   }
+  
+  
 }

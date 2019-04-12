@@ -5,5 +5,5 @@ export class User{
     Age: number;
     UserName: string;
     Password: string;
-
+    ErrorText:string;
 }

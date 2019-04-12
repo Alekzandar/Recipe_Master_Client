@@ -9,11 +9,11 @@ import { of } from 'rxjs';
   templateUrl: './tawbin-view.component.html',
   styleUrls: ['./tawbin-view.component.css']
 })
+
 export class TawbinViewComponent implements OnInit {
   private randRecipeObs: Observable <RandomRecipe[]>;
   private randRecipeResponse: RandomRecipe[];
   private randRecipeList: RandomRecipe[];
-  //private myJson;
 
 
   constructor(private randRecipeService: RandomRecipeService) { }

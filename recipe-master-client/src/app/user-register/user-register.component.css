@@ -1,4 +1,6 @@
-
+help-block{
+    color: solid red;
+}
 button.btn-submit{
     background-color: goldenrod;
     color:black;
