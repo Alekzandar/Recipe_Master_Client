@@ -63,9 +63,29 @@ export class UserRegisterComponent implements OnInit {
       );
     }
 
+<<<<<<< HEAD
     let jsonValue = JSON.stringify(this.u);
     console.log(jsonValue);
     alert('Form is Submitted Successfully');
+=======
+  submit(){
+    if(this.age < 10 || this.age > 120){
+      console.log("NOPE");
+    }
+    console.log("FIRST NAME: " + this.fname);
+    console.log("FIRST NAME TYPE: " + this.fname);
+    console.log("PASSWORD: " + this.password)
+    u: User;
+    this.u.FirstName = this.fname;
+    this.u.LastName = this.lname;
+    this.u.Email = this.email;
+    this.u.UserName = this.username;
+    this.u.Age = this.age;
+    this.u.Password = this.password
+    console.log("USER OBJECT PASSWORD: " + this.u.Password);
+    let json = JSON.stringify(this.u);
+    console.log("USER OBJECT IS NOW JSON:" + json);
+>>>>>>> c4697b37d6abf0eb597dd31bebf71f9d4acddcd5
   }
   
   
