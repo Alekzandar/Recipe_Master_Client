@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
+import { TestcomponentComponent } from './testcomponent/testcomponent.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     JackyViewComponent,
     MaressaViewComponent,
     AleksandarViewComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    TestcomponentComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 import { of } from 'rxjs';
+import { UserRegisterService } from './../services/user-register.service';
 
 
 @Component({
@@ -16,56 +17,45 @@ export class UserRegisterComponent implements OnInit {
   private userResponse: User[];
   private userList: User[];
 
-  u: User = { 
-    FirstName :null, 
-    LastName : null, 
-    Email :null, 
-    Age: null, 
-    UserName: null, 
-    Password: null,
-    ErrorText:''
+  u: User = new User();
+
+
+  constructor(private registerService: UserRegisterService) {
+    
+    
+    this.resetUser();
+
    }
 
-  fname: string;
-  lname: string;
-  email: string;
-  age: number;
-  username: string;
-  password: string;
-
-  constructor(private registerService: UserRegisterService) { }
+   resetUser(){
+    this.u.firstname = null;
+    this.u.lastname =  null; 
+    this.u.email = null;
+    this.u.age=  null;
+    this.u.username=  null; 
+    this.u.password=  null;
+    this.u.ErrorText= '';
+   }
 
   ngOnInit() {
     
   }
 
   onSubmit(u : User){
-    fname: u.FirstName;
-    lname: u.LastName;
-    email: u.Email;
-    age: u.Age;
-    username: u.UserName;
-    password: u.Password;
     
-    if (u.FirstName!=null && u.LastName!=null && u.FirstName == u.LastName){
-      u.ErrorText = "Error";
+    if (u.firstname!=null && u.lastname!=null && u.firstname == u.lastname){
+      u.ErrorText = "First and Last name cannot be same";
       return false;
-    } 
-    
-    saveUser(): void {
-      this.userResponse.getUsers().subscribe(
-        resp => {
-          this.userResponse = resp as User[]; 
-          this.userList = Object.values(this.userResponse);
-          console.log(this.userList);
-        },
-        (error: any) => console.log(error);
-      );
     }
-
-    let jsonValue = JSON.stringify(this.u);
-    console.log(jsonValue);
-    alert('Form is Submitted Successfully');
+    else
+    {
+      u.ErrorText = "";
+    } 
+    // let jsonValue = JSON.stringify(this.u);
+    console.log(this.u);
+    this.registerService.saveUser(this.u).subscribe();
+    this.resetUser();
+    u.ErrorText = "Form Submitted Successfully!!!";
 
   }
 }
