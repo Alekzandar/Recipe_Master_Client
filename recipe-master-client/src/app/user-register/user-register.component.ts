@@ -11,7 +11,7 @@ import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 
 export class UserRegisterComponent implements OnInit {
-  u: User = { FirstName : " ", LastName : ' ', Email : ' ', Age: 0, UserName: ' ', Password: ' '
+  u: User = { firstname : " ", lastname : ' ', email : ' ', age : 0, username: ' ', password: ' '
    }
   fname: string;
   lname: string;
@@ -28,14 +28,14 @@ export class UserRegisterComponent implements OnInit {
 
 //validate the registration form on onSubmit
 onSubmit(u : User){
-    fname: u.FirstName;
-    lname: u.LastName;
-    email: u.Email;
-    age:u.Age;
-    username: u.UserName;
-    password: u.Password;
+    fname: u.firstname;
+    lname: u.lastname;
+    email: u.email;
+    age:u.age;
+    username: u.username;
+    password: u.password;
     console.log("IN ON SUBMIT: " + u);
-    if (Object.values(u.FirstName) == Object.values(u.LastName)){
+    if (Object.values(u.firstname) == Object.values(u.lastname)){
       alert("First and Last name has to be different");
       return false;
     }
@@ -49,13 +49,13 @@ onSubmit(u : User){
     console.log("FIRST NAME TYPE: " + this.fname);
     console.log("PASSWORD: " + this.password)
     u: User;
-    this.u.FirstName = this.fname;
-    this.u.LastName = this.lname;
-    this.u.Email = this.email;
-    this.u.UserName = this.username;
-    this.u.Age = this.age;
-    this.u.Password = this.password
-    console.log("USER OBJECT PASSWORD: " + this.u.Password);
+    this.u.firstname = this.fname;
+    this.u.lastname = this.lname;
+    this.u.email = this.email;
+    this.u.username = this.username;
+    this.u.age = this.age;
+    this.u.password = this.password
+    console.log("USER OBJECT PASSWORD: " + this.u.password);
     let json = JSON.stringify(this.u);
     console.log("USER OBJECT IS NOW JSON:" + json);
   }
