@@ -8,7 +8,6 @@ import { AleksandarViewComponent } from './aleksandar-view/aleksandar-view.compo
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -17,8 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     TawbinViewComponent,
     JackyViewComponent,
     MaressaViewComponent,
-    AleksandarViewComponent,
-    DashboardComponent
+    AleksandarViewComponent
   ],
   imports: [
     BrowserModule,
