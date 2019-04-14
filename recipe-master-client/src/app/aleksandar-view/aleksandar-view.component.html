@@ -1,7 +1,7 @@
-<p>
-  Hello Recipes!
-</p>
-<h3>Recipes Received from Preloaded Query:</h3>
+<h3>
+  Generating Recipes by Connecting to the API
+</h3>
+<h4>Recipes Received from Preloaded Query:</h4>
 <ul class = "recipes" *ngFor = "let recipe of recipesList">
   <div *ngIf = "recipesList?.length > 0">
   <li>{{recipe.title}}</li>
@@ -9,3 +9,7 @@
 
 </ul>
 <button (click)= "loadRecipes()">Load Recipes</button>
+<br>
+<hr>
+<hr>
+<app-test-server></app-test-server>
