@@ -32,7 +32,8 @@ const registerHeaders = {
   
 
   saveUser(u:User):Observable<User> {
-    return this.httpClient.post<User>(this.registerUrl,u, registerHeaders).pipe(catchError(error => {
+    console.log("Inside User Register Service");
+    return this.httpClient.post<User>(this.registerUrl, u, registerHeaders).pipe(catchError(error => {
       return throwError(error.message); 
     }));
   }
