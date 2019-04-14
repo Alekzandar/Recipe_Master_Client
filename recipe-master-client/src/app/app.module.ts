@@ -13,6 +13,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 
 import { MainViewComponent } from './main-view/main-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { MainViewComponent } from './main-view/main-view.component';
     AleksandarViewComponent,
     TestServerComponent,
     UserRegisterComponent,
-    MainViewComponent
+    MainViewComponent,
+    UserRegisterComponent
+    
   ],
   imports: [
     BrowserModule,

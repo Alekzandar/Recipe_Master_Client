@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "fname": "json-server",
+      "lname": "typicode",
+      "email": "123@email.com",
+      "age": 18,
+      "username": "test1",
+      "password": "test123"
+    }
+  ]
+}
