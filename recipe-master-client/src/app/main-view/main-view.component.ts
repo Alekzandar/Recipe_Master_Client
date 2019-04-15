@@ -25,6 +25,10 @@ export class MainViewComponent {
 	constructor(private modalService: NgbModal) {}
 
 	openVerticallyCentered(content) {
-		this.modalService.open(content, { centered: true });
+		this.modalService.open(content, { centered: true, size: 'lg' });
+  }
+	openVerticallyCentereda(contenta) {
+		this.modalService.open(contenta, { centered: true, size: 'lg' });
 	}
 }
+
