@@ -1,20 +1,61 @@
-<p>
-  main-view works!
-  ay yo test
+<p class="text-xl-left"></p>
+<p class="text-center">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Registration</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-user-register></app-user-register>
+    </div>
+    <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div> -->
+  </ng-template>
+  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Registration</button>
 
-</p>
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+  <ng-template #contenta let-modal>
+    <!-- <div class="modal-header"> -->
+    <!-- <h4 class="modal-title">Login</h4> -->
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
+    <!-- </div> -->
+    <div class="modal-body">
+      <app-maressa-view></app-maressa-view>
+    </div>
+  </ng-template>
+  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentereda(contenta)">Login</button>
+</p>
+
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col-2">
+      People need to be,
+    </div>
+    <div class="col-2">
+        but how can they possibly
+    </div>
   </div>
-  <div class="modal-body">
-    <app-user-register></app-user-register>
+  <div class="row justify-content-center">
+    <div class="col-4">
+        when there isn’t a service
+      allowing them 
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  <div class="row justify-content-end">
+    <div class="col-2">
+        to search for recipes 
+    </div>
+    <div class="col-2">
+        by ingredients and store their favorites?
+      </div>
   </div>
-</ng-template>
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>
+  <hr>
+  <div class="row justify-content-around">
+      By utilizing a Recipe API,strives to provide the solution to this problem. Through Profiles of their very own, Users will have at their fingertips a wealth of recipes to their
+      specification.
+  </div>
+</div>
