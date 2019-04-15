@@ -56,6 +56,7 @@ export class UserRegisterComponent implements OnInit {
     this.registerService.saveUser(this.u).subscribe();
     this.resetUser();
     u.ErrorText = "Form Submitted Successfully!!!";
+    window.location.href = '#';
 
   }
 }
