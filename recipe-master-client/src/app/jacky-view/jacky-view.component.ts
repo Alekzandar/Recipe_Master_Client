@@ -57,6 +57,8 @@ export class JackyViewComponent implements OnInit {
 	
 	onCheckboxChagen(event, recipe, index) {
 		let faveRecipe: Recipe = new Recipe();
+		faveRecipe.user = new User();
+		faveRecipe.user.id = 0;
 		let ingredients: string = "";
 
 		faveRecipe.id = recipe.id;
@@ -70,11 +72,13 @@ export class JackyViewComponent implements OnInit {
 		});
 		ingredients += this.queryNames;
 		faveRecipe.ingredients = ingredients;
-		//this.faveRecipe.user.id = sessionStorage.getItem('userID');
+		let userId: number = parseInt(sessionStorage.getItem('userID'));
+		console.log("User ID: " + userId);
+		faveRecipe.user.id = userId;
 		console.log(JSON.stringify(faveRecipe));
 		//console.log("STARTING FAVE LIST: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
 		if (event.checked) {
-		  this.faveRecipes.push(recipe);
+		  this.faveRecipes.push(faveRecipe);
 		  //console.log("FAVE RECIPES LIST AFTER CHECK: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
 		} 
 		if (!event.checked) {
