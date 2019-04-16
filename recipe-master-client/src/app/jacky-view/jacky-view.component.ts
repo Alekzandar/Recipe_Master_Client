@@ -1,3 +1,4 @@
+import { User } from './../objects/User';
 import { Component, OnInit } from '@angular/core';
 import { QueryService } from './../services/query.service';
 import { Observable } from 'rxjs';
@@ -55,11 +56,26 @@ export class JackyViewComponent implements OnInit {
 	}
 	
 	onCheckboxChagen(event, recipe, index) {
-		console.log("CHECKED EVENT FUNCTION: " + recipe.title + " AT INDEX: " + index);
-		console.log("STARTING FAVE LIST: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
+		let faveRecipe: Recipe = new Recipe();
+		let ingredients: string = "";
+
+		faveRecipe.id = recipe.id;
+		faveRecipe.image = recipe.image;
+		faveRecipe.title = recipe.title;
+
+		JSON.stringify(recipe);
+		recipe.missedIngredients.forEach(element => {
+			ingredients = ingredients.concat(element.name + ", ");
+			
+		});
+		ingredients += this.queryNames;
+		faveRecipe.ingredients = ingredients;
+		//this.faveRecipe.user.id = sessionStorage.getItem('userID');
+		console.log(JSON.stringify(faveRecipe));
+		//console.log("STARTING FAVE LIST: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
 		if (event.checked) {
 		  this.faveRecipes.push(recipe);
-		  console.log("FAVE RECIPES LIST AFTER CHECK: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
+		  //console.log("FAVE RECIPES LIST AFTER CHECK: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
 		} 
 		if (!event.checked) {
 		  if (index > -1) {

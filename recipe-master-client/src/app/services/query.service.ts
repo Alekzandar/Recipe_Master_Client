@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 const recipeHeaders = {
   headers: new HttpHeaders({
     "X-RapidAPI-Host" : "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "7b8987c75emsh31f353e878d74e2p1e424fjsn5ffa201e13e5"
+    "X-RapidAPI-Key": "653c9ff2demsh033c83b0a49033ep1855d1jsnaebe6c7b70e9"
   })
 };
 
