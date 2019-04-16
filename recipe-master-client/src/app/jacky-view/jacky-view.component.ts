@@ -48,6 +48,10 @@ export class JackyViewComponent implements OnInit {
 		return properties[6].toString();
 
 	}
+	
+	saveFaveRecipes(){
+		
+	}
 
 
 	ngOnInit() {
