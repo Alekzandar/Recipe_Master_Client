@@ -52,8 +52,8 @@ export class MaressaViewComponent implements OnInit {
         sessionStorage.setItem('isLoggedIn', "true");
         console.log("SETTING SESSION STORAGE");
         sessionStorage.setItem('userID', this.responseUser.id.toString());
+        window.location.href = '/main';
         return true;
-        window.location.href = '#';
       }
     }else{
       return false;
