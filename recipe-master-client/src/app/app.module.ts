@@ -12,6 +12,7 @@ import { TestServerComponent } from './test-server/test-server.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainViewComponent } from './main-view/main-view.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MainViewComponent } from './main-view/main-view.component';
     AppRoutingModule,
     HttpClientModule,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

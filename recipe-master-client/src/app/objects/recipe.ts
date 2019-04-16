@@ -1,3 +1,5 @@
+import { User } from './User';
+
 export class Recipe {
     id: number;
     title: string;
@@ -7,4 +9,6 @@ export class Recipe {
     missedIngredients;
     usedIngredients;
     likes: number;
+    user: User;
+
 }

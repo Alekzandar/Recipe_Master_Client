@@ -11,7 +11,7 @@
 <ul class="recipes" *ngFor="let recipe of recipesList; let i = index">
   <div *ngIf="recipesList?.length > 0">
     <h3>{{recipe.title}}</h3>
-    <input type="checkbox" name="recipeItem" value={{recipe}}><img [src]="recipe.image" />
+    <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox><img [src]="recipe.image" />
     <h4>Missing Ingredients: {{recipe.missedIngredientCount}}</h4>
     <article *ngFor="let missed of recipe.missedIngredients">
       <li>{{objectKeys(missed)}}</li>

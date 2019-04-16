@@ -5,6 +5,8 @@ import { Recipe } from '../objects/recipe';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
 	selector: 'app-jacky-view',
@@ -17,6 +19,9 @@ export class JackyViewComponent implements OnInit {
 	private recipesList: Recipe[];
 	private names:string = '';
 	private queryNames:string = '';
+	private faveRecipes: Recipe[] = [];
+	rChecked = false;
+
 	regex = /,/g;
 	add:string = '%2C';
 	private recipeUrl:string = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=';
@@ -28,29 +33,45 @@ export class JackyViewComponent implements OnInit {
 		console.log("OLD STRING: " + this.names);
 		this.queryNames  = this.names.replace(this.regex, this.add);
 		console.log("NEW NAMES: " + this.queryNames);
-		this.recipeUrl+=this.names
+		this.recipeUrl+=this.names;
 		console.log("afterRECIPE URL: " + this.recipeUrl);
 		this.queryService.getRecipes(this.recipeUrl).subscribe(
 			resp => {
 			  this.recipesList = resp as Recipe[]; 
 			  console.log(this.recipesList);
-			  console.log("MISSED INGREDIENTS FOR SECOND RECIPE: " + this.recipesList[1].missedIngredients[0].name);
+			  //console.log("MISSED INGREDIENTS FOR SECOND RECIPE: " + this.recipesList[1].missedIngredients[0].name);
 			  //this.m = Object.values(this.recipesList.);
 			}
 		  );
 		}
 
 	objectKeys(obj){
-		console.log("IN KEY FUNCTION: " + obj);
+		//console.log("IN KEY FUNCTION: " + obj);
 		let properties = Object.values(obj);
-		console.log("OBJ: " + properties);
-		console.log("OBJ PROP: " + properties[6]); //IM SO UPSET ABOUT THIS - ALEKS
+		//console.log("OBJ: " + properties);
+		//console.log("OBJ PROP: " + properties[6]); //IM SO UPSET ABOUT THIS - ALEKS
 		return properties[6].toString();
 
 	}
 	
+	onCheckboxChagen(event, recipe, index) {
+		console.log("CHECKED EVENT FUNCTION: " + recipe.title + " AT INDEX: " + index);
+		console.log("STARTING FAVE LIST: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
+		if (event.checked) {
+		  this.faveRecipes.push(recipe);
+		  console.log("FAVE RECIPES LIST AFTER CHECK: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
+		} 
+		if (!event.checked) {
+		  if (index > -1) {
+			this.faveRecipes = this.faveRecipes.splice(index, 1);
+		  }
+		}
+		console.log("FAVES RECIPE ARRAY: " + JSON.stringify(this.faveRecipes));
+	}
+
+
 	saveFaveRecipes(){
-		
+
 	}
 
 
