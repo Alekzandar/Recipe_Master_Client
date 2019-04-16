@@ -17,6 +17,7 @@ const recipeHeaders = {
   providedIn: 'root'
 })
 export class QueryService {
+  private serverRecipeUrl = 'http://localhost:8085/recipe-master/recipe'
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +27,11 @@ export class QueryService {
   getRecipes(recipeUrl) {
     console.log("IN SERVICE :" + recipeUrl + " with headers: " + recipeHeaders);
     return this.http.get<Recipe[]>(recipeUrl, recipeHeaders);
-      
+  }
+
+  postRecipes(faveRecipes){
+    console.log("IN SERVICE TO SEND FAVE RECIPES: " + faveRecipes);
+    return this.http.post<Recipe[]>(this.serverRecipeUrl, faveRecipes);
+
   }
 }

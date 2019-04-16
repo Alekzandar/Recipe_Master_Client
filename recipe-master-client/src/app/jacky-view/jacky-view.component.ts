@@ -91,7 +91,13 @@ export class JackyViewComponent implements OnInit {
 
 
 	saveFaveRecipes(){
-
+		JSON.stringify(this.faveRecipes);
+		console.log("PREPARING FAVE RECIPES FOR SERVICE: " + this.faveRecipes);
+		this.queryService.postRecipes(this.faveRecipes).subscribe(
+			resp => {
+				console.log("SUCCESSFULLY POSTED TO SERVER");
+			}
+		)
 	}
 
 
