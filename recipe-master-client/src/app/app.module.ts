@@ -15,7 +15,7 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDashComponent } from './user-dash/user-dash.component';
-
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { UserDashComponent } from './user-dash/user-dash.component';
     UserRegisterComponent,
     UserDashComponent
     
+    
   ],
   imports: [
     NgbModule,
@@ -39,7 +40,9 @@ import { UserDashComponent } from './user-dash/user-dash.component';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,8 @@ import { UserRecipesService } from './../services/user-recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../objects/recipe';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
+import {DataSource} from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-dash',
@@ -10,8 +12,13 @@ import { componentNeedsResolution } from '@angular/core/src/metadata/resource_lo
 })
 export class UserDashComponent implements OnInit {
   private userRecipes: Recipe[] = [];
+  //title ; ingredients ; detail button
+  
+
 
   constructor(private userRecipeService: UserRecipesService) { }
+
+
 
   ngOnInit() {
     this.getUserRecipes();
@@ -30,5 +37,4 @@ export class UserDashComponent implements OnInit {
       }
     )
   }
-
 }
