@@ -29,11 +29,11 @@ export class LogInService {
     console.log("VERIFYING LOG-IN STATUS");
     let logged: Boolean = JSON.parse(sessionStorage.getItem('isLoggedIn'));
     if (logged){
-      console.log("IS LOGGED IN");
+      //console.log("IS LOGGED IN");
       return true;
     }
     else{
-      console.log("IS NOT LOGGED IN");
+      //console.log("IS NOT LOGGED IN");
       return false;
     }
   }

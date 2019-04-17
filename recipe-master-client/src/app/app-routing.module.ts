@@ -9,6 +9,7 @@ import { TestServerComponent }      from './test-server/test-server.component';
 import { MainViewComponent }      from './main-view/main-view.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserDashComponent } from './user-dash/user-dash.component';
 
 const routes: Routes = [
   { path: 'tawbin', component: TawbinViewComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'maressa', component: MaressaViewComponent },
   { path: 'test', component: TestServerComponent },
   { path: 'registration', component: UserRegisterComponent },
+  { path: 'user-dash', component: UserDashComponent },
   { path: 'main', component: MainViewComponent }
 ];
 

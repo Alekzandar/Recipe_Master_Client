@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainViewComponent } from './main-view/main-view.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDashComponent } from './user-dash/user-dash.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TestServerComponent,
     UserRegisterComponent,
     MainViewComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserDashComponent
     
   ],
   imports: [

@@ -6,6 +6,7 @@
           <li class="nav-item"><a class="nav-link" routerLink="/main">Home</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/tawbin">Recipe Dashboard</a></li>
           <div *ngIf ="showLogOut()">
+            <li class="nav-item"><a class="nav-link" routerLink="/user-dash">User Dashboard</a></li>
             <button class="btn btn-outline-warning my-2 my-sm-0" (click) = logOut()>Log Out</button>
           </div>
         </ul>
