@@ -1,5 +1,6 @@
+import { RecipeDetailComponent } from './../recipe-detail/recipe-detail.component';
 import { UserRecipesService } from './../services/user-recipes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { Recipe } from '../objects/recipe';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 import {DataSource} from '@angular/cdk/collections';
@@ -7,6 +8,8 @@ import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs4';
+import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-dash',
@@ -16,16 +19,16 @@ import 'datatables.net-bs4';
 export class UserDashComponent implements OnInit {
   private userRecipes: Recipe[] = [];
   private dataTable: any;
+  recipeId: string;
   //title ; ingredients ; detail button
-  
 
-
-  constructor(private userRecipeService: UserRecipesService) { }
+  constructor(private userRecipeService: UserRecipesService, private data: DataService, public router: Router) { }
 
 
 
   ngOnInit() {
     this.getUserRecipes();
+    this.data.currentId.subscribe(id => this.recipeId = id);
   }
 
   getUserRecipes(){
@@ -43,5 +46,18 @@ export class UserDashComponent implements OnInit {
         this.dataTable = table.DataTable({searching: false});
       }
     )
+  }
+
+  recipeDetail(recipe){
+    console.log("CLICKED MORE DETAILS FOR: " + recipe.id);
+    this.recipeId = recipe.id;
+    console.log("RECIPE ID TO PASS:" + this.recipeId);
+    this.sendRecipeId();
+    this.router.navigateByUrl('/detail', { state: { id: this.recipeId } });
+  }
+
+  sendRecipeId(){
+    console.log("UPDATING SIBLING: " + this.recipeId);
+    this.data.changeMessage(this.recipeId);
   }
 }

@@ -32,9 +32,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     MainViewComponent,
     UserRegisterComponent,
     UserDashComponent,
-    RecipeDetailComponent
-    
-    
+    RecipeDetailComponent      
   ],
   imports: [
     NgbModule,
@@ -46,9 +44,9 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     MatCheckboxModule,
     BrowserAnimationsModule,
     BrowserModule,
-    MatTableModule
+    MatTableModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
