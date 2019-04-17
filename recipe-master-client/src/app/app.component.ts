@@ -1,18 +1,33 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import {AfterViewInit} from '@angular/core';
+import { LogInService } from './services/login.service';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
-
+export class AppComponent implements OnInit{
   title = 'Recipe Master';
 
-  ngAfterViewInit() {this.tref.nativeElement.setAttribute('onclick',this.logoutUser); }
+  constructor( private logInServce: LogInService) { }
 
-  logoutUser = "if(confirm('Are you sure you want to log Out ? ')){sessionStorage.clear();return true;}";
+  ngOnInit() { this.showLogOut(); }
+
+  ngDoCheck() { this.showLogOut();}
+
+	showLogOut(){
+    let status = this.logInServce.loggedIn();
+    return status;
+	}
   
+  logOut() {
+    sessionStorage.setItem('isLoggedIn', 'false');
+    sessionStorage.removeItem('userID');
+    sessionStorage.removeItem('username');
+  }
+
+
+
 }

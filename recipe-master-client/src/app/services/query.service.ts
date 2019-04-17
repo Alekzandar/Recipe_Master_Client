@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 const recipeHeaders = {
   headers: new HttpHeaders({
     "X-RapidAPI-Host" : "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "7b8987c75emsh31f353e878d74e2p1e424fjsn5ffa201e13e5"
+    "X-RapidAPI-Key": "653c9ff2demsh033c83b0a49033ep1855d1jsnaebe6c7b70e9"
   })
 };
 
@@ -17,6 +17,7 @@ const recipeHeaders = {
   providedIn: 'root'
 })
 export class QueryService {
+  private serverRecipeUrl = 'http://localhost:8085/recipe-master/recipe'
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +27,11 @@ export class QueryService {
   getRecipes(recipeUrl) {
     console.log("IN SERVICE :" + recipeUrl + " with headers: " + recipeHeaders);
     return this.http.get<Recipe[]>(recipeUrl, recipeHeaders);
-      
+  }
+
+  postRecipes(faveRecipes){
+    console.log("IN SERVICE TO SEND FAVE RECIPES: " + faveRecipes);
+    return this.http.post<Recipe[]>(this.serverRecipeUrl, faveRecipes);
+
   }
 }

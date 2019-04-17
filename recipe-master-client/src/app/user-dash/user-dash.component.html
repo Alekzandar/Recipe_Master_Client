@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Favorite Recipes</h1>
+  
+  <table class="table table-hover" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Recipe Ingredients</th>
+        <th>Load Recipes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of Recipe">
+          <td>{{recipe.title}}</td>
+          <td>{{recipe.ingredients}}</td>
+          <td><button (click)= "Jackyfunction()">Load Recipes</button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>

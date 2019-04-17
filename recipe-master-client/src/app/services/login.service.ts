@@ -25,6 +25,19 @@ export class LogInService {
 
   byUsernameUrl = 'http://localhost:8085/recipe-master/user/';
 
+  loggedIn(){
+    console.log("VERIFYING LOG-IN STATUS");
+    let logged: Boolean = JSON.parse(sessionStorage.getItem('isLoggedIn'));
+    if (logged){
+      //console.log("IS LOGGED IN");
+      return true;
+    }
+    else{
+      //console.log("IS NOT LOGGED IN");
+      return false;
+    }
+  }
+
   getUser(username) {
     console.log("IN LOGIN SERVICE FOR REQUEST: " + this.byUsernameUrl+username);
     return this.http.get<LoggedUser>(this.byUsernameUrl+username, {headers:this.headers});
