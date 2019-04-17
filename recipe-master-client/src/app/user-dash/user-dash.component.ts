@@ -4,6 +4,9 @@ import { Recipe } from '../objects/recipe';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 import {DataSource} from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
+import 'datatables.net';
+import 'datatables.net-bs4';
 
 @Component({
   selector: 'app-user-dash',
@@ -12,6 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class UserDashComponent implements OnInit {
   private userRecipes: Recipe[] = [];
+  private dataTable: any;
   //title ; ingredients ; detail button
   
 
@@ -34,6 +38,9 @@ export class UserDashComponent implements OnInit {
         console.log("First Saved Recipe for User: " + this.userRecipes[0].title);
         JSON.stringify(this.userRecipes);
         console.log("After Stringify for Datatables: " + this.userRecipes);
+
+        const table: any = $('table');
+        this.dataTable = table.DataTable({searching: false});
       }
     )
   }

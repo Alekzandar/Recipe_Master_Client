@@ -6,26 +6,35 @@
 <input type="text" [(ngModel)]="names">
 <br>
 <br>
-<button (click)="nameLoad()">Search Recipes</button>
+<button class="btn btn-info" (click)="nameLoad()">Search Recipes</button>
 
-<ul class="recipes" *ngFor="let recipe of recipesList; let i = index">
-  <div *ngIf="recipesList?.length > 0">
-    <h3>{{recipe.title}}</h3>
-    <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox><img [src]="recipe.image" />
-    <h4>Missing Ingredients: {{recipe.missedIngredientCount}}</h4>
-    <article *ngFor="let missed of recipe.missedIngredients">
-      <li>{{objectKeys(missed)}}</li>
-    </article>
-    <hr>
-  </div>
-</ul>
+<div class="container">
+
+  <ul class="recipes" *ngFor="let recipe of recipesList; let i = index">
+    <div *ngIf="recipesList?.length > 0">
+      <div class="col-md-6">
+        <h3>{{recipe.title}}</h3>
+        <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox>
+        <img [src]="recipe.image" />
+        <h3>Missing Ingredients: {{recipe.missedIngredientCount}}</h3>
+        <article *ngFor="let missed of recipe.missedIngredients">
+          <li>{{objectKeys(missed)}}</li>
+        </article>
+        <hr>
+      </div>
+    </div>
+  </ul>
+</div>
+
+
+
 <br>
 <div *ngIf="showSubmit() == false">
-  <button  routerLink="/main">Log-In to Save</button>
+  <button class="btn btn-warning" routerLink="/main">Log-In to Save</button>
 </div>
 
 <div *ngIf="showSubmit()">
-  <button (click)="saveFaveRecipes()">Save Favorites</button>
+  <button class="btn btn-success" (click)="saveFaveRecipes()">Save Favorites</button>
 </div>
 
 <router-outlet></router-outlet>

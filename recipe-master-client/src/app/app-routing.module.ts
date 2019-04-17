@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'registration', component: UserRegisterComponent },
   { path: 'user-dash', component: UserDashComponent },
   { path: 'main', component: MainViewComponent }
+
 ];
 
 @NgModule({
