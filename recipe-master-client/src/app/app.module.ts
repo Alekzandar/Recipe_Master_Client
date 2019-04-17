@@ -16,6 +16,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDashComponent } from './user-dash/user-dash.component';
 import { MatTableModule } from '@angular/material';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MatTableModule } from '@angular/material';
     UserRegisterComponent,
     MainViewComponent,
     UserRegisterComponent,
-    UserDashComponent
+    UserDashComponent,
+    RecipeDetailComponent
     
     
   ],
