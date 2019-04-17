@@ -1,16 +1,15 @@
 <div class="container">
   <div class="jumbotron">
-    <p>
-      Recipe of the Day!
-    </p>
+    <h3>
+      Try out our Recipe of the Day..!!
+    </h3>
 
-    <h3>Try out our Recipe of the Day...</h3>
     <div *ngIf="randRecipeList">
-      <h2>Todays Recipe...</h2>
-      <h3>Recipe Title: {{ randRecipeList[0][0].title}}</h3>
-      <h3>Preparation Time: {{ randRecipeList[0][0].readyInMinutes}}</h3>
-      <h3>Serving Size: {{ randRecipeList[0][0].servings}}</h3>
-      <h3>Instructions: {{ randRecipeList[0][0].instructions}}</h3>
+      <p>Recipe Title: {{ randRecipeList[0][0].title}}</p>
+      <p>Preparation Time: {{ randRecipeList[0][0].readyInMinutes}}</p>
+      <p>Serving Size: {{ randRecipeList[0][0].servings}}</p>
+      <p>Instructions: {{ randRecipeList[0][0].instructions}}</p>
+      <p> <img src="image.png"/></p>
 
     </div>
 

@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainViewComponent } from './main-view/main-view.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { MainViewComponent } from './main-view/main-view.component';
     UserRegisterComponent,
     MainViewComponent,
     UserRegisterComponent
+  
     
   ],
   imports: [
