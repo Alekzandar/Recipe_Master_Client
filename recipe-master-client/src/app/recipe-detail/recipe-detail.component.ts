@@ -52,6 +52,8 @@ export class RecipeDetailComponent implements OnInit {
 				console.log(this.recipeCheap);
 				this.recipeImage = this.recipeEntries.image;
 				console.log(this.recipeImage);
+				this.recipeDirection = this.recipeEntries.instructions;
+				console.log(this.recipeDirection);
 /*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
 				console.log(this.recipeImage);
 				this.extendedIngredients = this.recipeEntries.extendedIngredients;
