@@ -15,6 +15,7 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDashComponent } from './user-dash/user-dash.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserDashComponent } from './user-dash/user-dash.component';
     UserRegisterComponent,
     MainViewComponent,
     UserRegisterComponent,
-    UserDashComponent
+    UserDashComponent,
+    RecipeDetailComponent
     
   ],
   imports: [
