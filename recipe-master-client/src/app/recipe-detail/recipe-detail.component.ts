@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class RecipeDetailComponent implements OnInit {
 	constructor(private detailService: DetailService, private data: DataService, public activatedRoute: ActivatedRoute) { }
-	
+
 	private recipeId;
 
 	private id: string = '289101';
@@ -39,29 +39,17 @@ export class RecipeDetailComponent implements OnInit {
 
 
 	getDetails() {
-		this.detailService.getObject(this.id).subscribe(
+		this.detailService.getObject(this.recipeId).subscribe(
 			resp => {
-<<<<<<< HEAD
-				console.log(resp + "GOT RESPONSE");
+				//console.log(resp+"GOT RESPONSE");
 				/*				this.recipeKey = Object.keys(resp);
 								console.log(this.recipeKey);
 								this.recipe = Object.values(resp);
 								console.log(this.recipe);*/
 				this.recipeEntries = resp;
-				console.log(this.recipeEntries);
+				//console.log(this.recipeEntries);
 				/*				Object.entries(this.recipeEntries.extendedIngredients).forEach(key=>
 								{ console.log(key.names); })*/
-=======
-				//console.log(resp+"GOT RESPONSE");
-/*				this.recipeKey = Object.keys(resp);
-				console.log(this.recipeKey);
-				this.recipe = Object.values(resp);
-				console.log(this.recipe);*/
-				this.recipeEntries = resp;
-				//console.log(this.recipeEntries);
-/*				Object.entries(this.recipeEntries.extendedIngredients).forEach(key=>
-				{ console.log(key.names); })*/
->>>>>>> JackyDev
 				Object.entries(this.recipeEntries.extendedIngredients).forEach(
 					([key, value]) => /*console.log(Object.values(value)[4]) ingredient names only*/
 						this.extendedIngredientsName.push(Object.values(value)[5])
@@ -76,16 +64,6 @@ export class RecipeDetailComponent implements OnInit {
 				this.recipeServings = this.recipeEntries.servings;
 				//console.log(this.recipeServings);
 				this.recipeDirection = this.recipeEntries.instructions;
-<<<<<<< HEAD
-				console.log(this.recipeDirection);
-				/*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
-								console.log(this.recipeImage);
-								this.extendedIngredients = this.recipeEntries.extendedIngredients;
-								console.log(Object.values(this.extendedIngredients));*/
-				/*				for (var i in Object.entries(this.recipeEntries.extendedIngredients)) {
-									console.log(i);
-								}*/
-=======
 				//console.log(this.recipeDirection);
 				this.vegan = this.recipeEntries.vegan;
 				//console.log(this.vegan);
@@ -96,26 +74,25 @@ export class RecipeDetailComponent implements OnInit {
 				this.glutenFree = this.recipeEntries.glutenFree;
 				this.ketogenic = this.recipeEntries.ketogenic;
 				this.ppServing = this.recipeEntries.pricePerServing;
-/*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
-				console.log(this.recipeImage);
-				this.extendedIngredients = this.recipeEntries.extendedIngredients;
-				console.log(Object.values(this.extendedIngredients));*/
-/*				for (var i in Object.entries(this.recipeEntries.extendedIngredients)) {
-					console.log(i);
-				}*/
->>>>>>> JackyDev
+				/*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
+								console.log(this.recipeImage);
+								this.extendedIngredients = this.recipeEntries.extendedIngredients;
+								console.log(Object.values(this.extendedIngredients));*/
+				/*				for (var i in Object.entries(this.recipeEntries.extendedIngredients)) {
+									console.log(i);
+								}*/
 
-				return "Success";
 			})
 	}
 
 
 	ngOnInit() {
 		this.recipeId = this.activatedRoute.paramMap
-	  .pipe(map(() => window.history.state))
-	  console.log("RECIPE ID: " + window.history.state.id);
-	  this.recipeId = window.history.state.id;
-	  console.log("RECIPE ID IN DETAIL: " + this.recipeId)
+			.pipe(map(() => window.history.state))
+		console.log("RECIPE ID: " + window.history.state.id);
+		this.recipeId = window.history.state.id;
+		console.log("RECIPE ID IN DETAIL: " + this.recipeId);
+		this.getDetails();
 	}
 
 }
