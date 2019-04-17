@@ -6,14 +6,16 @@
       <tr>
         <th>Title</th>
         <th>Recipe Ingredients</th>
+        <th>Make Me!</th>
         <th>Load Recipes</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of Recipe">
+      <tr *ngFor="let recipe of userRecipes">
           <td>{{recipe.title}}</td>
           <td>{{recipe.ingredients}}</td>
-          <td><button (click)= "Jackyfunction()">Load Recipes</button></td>
+          <td><img [src] = "recipe.image"></td>
+          <td><button (click)= "Jackyfunction()">More Details</button></td>
         </tr>
       </tbody>
     </table>

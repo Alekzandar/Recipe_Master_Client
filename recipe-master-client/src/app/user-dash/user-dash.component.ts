@@ -15,6 +15,9 @@ import 'datatables.net-bs4';
 })
 export class UserDashComponent implements OnInit {
   private userRecipes: Recipe[] = [];
+  private dataTable: any;
+  //title ; ingredients ; detail button
+  
 
 
   constructor(private userRecipeService: UserRecipesService) { }
@@ -35,6 +38,9 @@ export class UserDashComponent implements OnInit {
         console.log("First Saved Recipe for User: " + this.userRecipes[0].title);
         JSON.stringify(this.userRecipes);
         console.log("After Stringify for Datatables: " + this.userRecipes);
+
+        const table: any = $('table');
+        this.dataTable = table.DataTable({searching: false});
       }
     )
   }

@@ -97,6 +97,7 @@ export class JackyViewComponent implements OnInit {
 		this.queryService.postRecipes(this.faveRecipes).subscribe(
 			resp => {
 				console.log("SUCCESSFULLY POSTED TO SERVER");
+				window.location.href = '/user-dash';
 			}
 		)
 	}
