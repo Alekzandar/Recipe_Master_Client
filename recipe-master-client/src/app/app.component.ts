@@ -1,6 +1,7 @@
+import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
+import {AfterViewInit} from '@angular/core';
 import { LogInService } from './services/login.service';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
