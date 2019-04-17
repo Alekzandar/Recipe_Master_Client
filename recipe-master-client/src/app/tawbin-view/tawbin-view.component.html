@@ -5,15 +5,14 @@
     </h3>
 
     <div *ngIf="randRecipeList">
-      <h2>Todays Recipe...</h2>
       <h3>Recipe Title: {{ randRecipeList[0][0].title}}</h3>
       <img [src] = "randRecipeList[0][0].image" alt = "Random Recipe Img" crossorigin="anonymous">
-      <h3>Preparation Time: {{ randRecipeList[0][0].readyInMinutes}} Minutes</h3>
-      <h3>Serving Size: {{ randRecipeList[0][0].servings}}</h3>
+      <p><b>Preparation Time: </b><br>{{ randRecipeList[0][0].readyInMinutes}} Minutes</p>
+      <p><b>Serving Size: </b><br>{{ randRecipeList[0][0].servings}}</p>
       <p><b>Instructions: </b><br> {{ randRecipeList[0][0].instructions}}</p>
 
     </div>
-    <button class="btn btn-default" (click)="loadRandomRecipes()">Load Recipe of the Day</button>
+    <button ng-show="ShowSave == 'display' ? true : false" class= "btn btn-success" (click)="loadRandomRecipes()">Load Recipe of the Day</button>
   </div>
   <hr>
   <app-jacky-view></app-jacky-view>

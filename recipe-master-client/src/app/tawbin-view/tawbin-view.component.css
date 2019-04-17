@@ -1,4 +1,4 @@
 
-button.btn-default:focus, button.btn-default:hover{
-    background-color: #38547b;
+button.btn-success:focus, button.btn-success:hover{
+    background-color: light paleturquoise;
 }
