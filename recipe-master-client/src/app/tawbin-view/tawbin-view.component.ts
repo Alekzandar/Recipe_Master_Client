@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RandomRecipe } from '../objects/randomrecipe';
 import { of } from 'rxjs';
+import { LogInService } from '../services/login.service';
 
 @Component({
   selector: 'app-tawbin-view',
@@ -22,8 +23,6 @@ export class TawbinViewComponent implements OnInit {
   }
 
   loadRandomRecipes():  void {
-
-
     this.randRecipeService.getRandomRecipe().subscribe(
       resp => {
         this.randRecipeResponse = resp as RandomRecipe[]; 
@@ -38,6 +37,5 @@ export class TawbinViewComponent implements OnInit {
 
       }
     );
-
 }
 }

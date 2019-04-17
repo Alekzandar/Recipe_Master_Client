@@ -20,4 +20,12 @@
   </div>
 </ul>
 <br>
-<button (click)="saveFaveRecipes()">Save Favorites</button>
+<div *ngIf="showSubmit() == false">
+  <button  routerLink="/main">Log-In to Save</button>
+</div>
+
+<div *ngIf="showSubmit()">
+  <button (click)="saveFaveRecipes()">Save Favorites</button>
+</div>
+
+<router-outlet></router-outlet>

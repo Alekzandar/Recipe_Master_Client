@@ -1,13 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand">Recipe Master</a>
+      <ul class="nav navbar-nav" routerLinkActive="active">
+          <li class="nav-item"><a class="nav-link" routerLink="/main">Home</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/tawbin">Recipe Dashboard</a></li>
+          <div *ngIf ="showLogOut()">
+            <button class="btn btn-outline-warning my-2 my-sm-0" (click) = logOut()>Log Out</button>
+          </div>
+        </ul>
+  </div>
+</nav>
+
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>    
-  <nav>
-    <a routerLink="/main">MainView</a> -   
-    <a routerLink="/tawbin">User Dashboard</a>   
-    <!-- <a routerLink="/aleksandar">Demos</a>  --> 
-  </nav>
 </div>
+
 <router-outlet></router-outlet>
 
