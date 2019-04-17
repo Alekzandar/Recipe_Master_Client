@@ -16,7 +16,7 @@ export class RecipeDetailComponent implements OnInit {
 	
 	private recipeId;
 
-	private id: string = '479101';
+	private id: string = '289101';
 
 	private recipe;
 	private recipeTitle;
@@ -34,11 +34,14 @@ export class RecipeDetailComponent implements OnInit {
 	private IList = [];
 	private extendedIngredientsName = [];
 	private recipeDirection;
+	private ketogenic;
+	private ppServing;
 
 
 	getDetails() {
 		this.detailService.getObject(this.id).subscribe(
 			resp => {
+<<<<<<< HEAD
 				console.log(resp + "GOT RESPONSE");
 				/*				this.recipeKey = Object.keys(resp);
 								console.log(this.recipeKey);
@@ -48,20 +51,32 @@ export class RecipeDetailComponent implements OnInit {
 				console.log(this.recipeEntries);
 				/*				Object.entries(this.recipeEntries.extendedIngredients).forEach(key=>
 								{ console.log(key.names); })*/
+=======
+				//console.log(resp+"GOT RESPONSE");
+/*				this.recipeKey = Object.keys(resp);
+				console.log(this.recipeKey);
+				this.recipe = Object.values(resp);
+				console.log(this.recipe);*/
+				this.recipeEntries = resp;
+				//console.log(this.recipeEntries);
+/*				Object.entries(this.recipeEntries.extendedIngredients).forEach(key=>
+				{ console.log(key.names); })*/
+>>>>>>> JackyDev
 				Object.entries(this.recipeEntries.extendedIngredients).forEach(
-					([key, value]) => /*console.log(Object.values(value)[4])*/
-						this.extendedIngredientsName.push(Object.values(value)[4])
+					([key, value]) => /*console.log(Object.values(value)[4]) ingredient names only*/
+						this.extendedIngredientsName.push(Object.values(value)[5])
 				);
-				console.log(this.extendedIngredientsName);
+				//console.log(this.extendedIngredientsName);
 				this.recipeTitle = this.recipeEntries.title;
-				console.log(this.recipeTitle);
-				this.recipeServings = this.recipeEntries.servings;
-				console.log(this.recipeServings);
+				//console.log(this.recipeTitle);
 				this.recipeCheap = this.recipeEntries.cheap;
-				console.log(this.recipeCheap);
+				//console.log(this.recipeCheap);
 				this.recipeImage = this.recipeEntries.image;
-				console.log(this.recipeImage);
+				//console.log(this.recipeImage);
+				this.recipeServings = this.recipeEntries.servings;
+				//console.log(this.recipeServings);
 				this.recipeDirection = this.recipeEntries.instructions;
+<<<<<<< HEAD
 				console.log(this.recipeDirection);
 				/*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
 								console.log(this.recipeImage);
@@ -70,6 +85,25 @@ export class RecipeDetailComponent implements OnInit {
 				/*				for (var i in Object.entries(this.recipeEntries.extendedIngredients)) {
 									console.log(i);
 								}*/
+=======
+				//console.log(this.recipeDirection);
+				this.vegan = this.recipeEntries.vegan;
+				//console.log(this.vegan);
+				this.vegetarian = this.recipeEntries.vegatarian;
+				this.prepTime = this.recipeEntries.readyInMinutes;
+				this.dairyFree = this.recipeEntries.dairyFree;
+				//console.log(this.dairyFree);
+				this.glutenFree = this.recipeEntries.glutenFree;
+				this.ketogenic = this.recipeEntries.ketogenic;
+				this.ppServing = this.recipeEntries.pricePerServing;
+/*				this.recipeImage = this.recipeEntries.extendedIngredients[0].name;
+				console.log(this.recipeImage);
+				this.extendedIngredients = this.recipeEntries.extendedIngredients;
+				console.log(Object.values(this.extendedIngredients));*/
+/*				for (var i in Object.entries(this.recipeEntries.extendedIngredients)) {
+					console.log(i);
+				}*/
+>>>>>>> JackyDev
 
 				return "Success";
 			})
