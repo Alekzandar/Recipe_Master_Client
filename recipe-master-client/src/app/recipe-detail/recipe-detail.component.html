@@ -16,9 +16,14 @@
 			</div>
 			<div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
 				<div>
-					<h2>Title: {{recipeTitle}}</h2>
-					<p class="margin-top-s">Servings{{recipeServings}}</p>
-					Cheap: {{recipeCheap}}
+					<h2>{{recipeTitle}}</h2>
+					<p class="margin-top-s">Serves: {{recipeServings}}</p>
+					<div *ngIf="recipeCheap==true"><span class="badge badge-primary">Cheap</span></div>
+					<div *ngIf="vegan==true"><span class="badge badge-secondary">Vegan</span></div>
+					<div *ngIf="vegetarian==true"><span class="badge badge-success">Vegatarian</span></div>
+					<div *ngIf="dairyFree==true"><span class="badge badge-danger">Dairy Free</span></div>
+					<div *ngIf="glutenFree==true"><span class="badge badge-warning">Gluten Free</span></div>
+					<div *ngIf="ketogenic==true"><span class="badge badge-info">Ketogenic</span></div>
 					Additional ingredients
 					<div *ngFor="let extended of extendedIngredientsName">
 						<li>{{extended}}</li>
@@ -27,7 +32,10 @@
 			</div>
 		</div>
 		<h4>Instructions: </h4>
+		<!-- <span class="badge badge-dark">Time to Prepare your food: {{prepTime}} Minutes</span> -->
+		<h4><span class="badge badge-Light">Ready Time: {{prepTime}} Minutes</span></h4>
+
 		<br>
-		<p class="text-center">{{recipeDirection}}</p>
+	<div class="text-center" *ngIf="recipeDirection!=null; else elseBlock">{{recipeDirection}}</div><ng-template #elseBlock><h1>Directions Coming Soon...</h1></ng-template>
 	</div>
 </section>
