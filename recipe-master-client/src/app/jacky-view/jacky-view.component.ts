@@ -71,7 +71,7 @@ export class JackyViewComponent implements OnInit {
 			ingredients = ingredients.concat(element.name + ", ");
 
 		});
-		ingredients += this.queryNames;
+		ingredients += this.names;
 		faveRecipe.ingredients = ingredients;
 		let userId: number = parseInt(sessionStorage.getItem('userID'));
 		//console.log("User ID: " + userId);
