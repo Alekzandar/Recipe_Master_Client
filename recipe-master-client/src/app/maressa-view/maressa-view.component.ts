@@ -15,6 +15,7 @@ export class MaressaViewComponent implements OnInit {
   loading = false;
   submitted = false;
   private responseUser: LoggedUser;
+  private badLogIn = false;
 
   constructor(private formBuilder: FormBuilder, private loginService: LogInService) { }
 
@@ -29,26 +30,32 @@ export class MaressaViewComponent implements OnInit {
     this.submitted = true;
     //this.loading = true; Really don't need this while testing
     //////////////////////////////////////////////////////////
-    console.log("Value:" + this.loginForm.get('username').value);
+    //console.log("Value:" + this.loginForm.get('username').value);
     this.username = this.loginForm.get('username').value;
-    console.log("Value:" + this.loginForm.get('password').value);
+    //console.log("Value:" + this.loginForm.get('password').value);
     this.loginService.getUser(this.username).subscribe(
       userResponse => {
-        this.responseUser = userResponse;
-        console.log("Retrieved User");
-        console.log(userResponse.id);
-        console.log("User's Username: " + userResponse.username);
-        console.log("User's Password: " + userResponse.password);
-        this.logIn();
+        if (userResponse == null) {
+          this.badLogIn = true;
+          console.log("BAD LOGIN");
+        } else {
+          this.badLogIn = false;
+          this.responseUser = userResponse;
+          console.log("Retrieved User");
+          console.log(userResponse.id);
+          console.log("User's Username: " + userResponse.username);
+          console.log("User's Password: " + userResponse.password);
+          this.logIn();
+        }
       });
-  
+
   }
 
   logIn(): boolean {
     console.log("IN LOGIN FUNCTION");
-    if (this.responseUser.username == this.loginForm.get('username').value){
+    if (this.responseUser.username == this.loginForm.get('username').value) {
       console.log("MATCHING USERNAME'S");
-      if (this.responseUser.password == this.loginForm.get('password').value){
+      if (this.responseUser.password == this.loginForm.get('password').value) {
         sessionStorage.setItem('isLoggedIn', "true");
         console.log("SETTING SESSION STORAGE");
         sessionStorage.setItem('userID', this.responseUser.id.toString());
@@ -56,7 +63,7 @@ export class MaressaViewComponent implements OnInit {
         window.location.href = '/main';
         return true;
       }
-    }else{
+    } else {
       return false;
     }
   }
