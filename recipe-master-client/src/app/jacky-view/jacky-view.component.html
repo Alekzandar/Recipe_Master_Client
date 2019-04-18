@@ -70,10 +70,6 @@
 
 <div *ngIf="recipesList?.length > 0">
 
-  <br>
-  <div *ngIf="showSubmit()">
-      <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
-    </div>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -94,6 +90,10 @@
   <div *ngIf="showSubmit() == false">
     <button class="btn btn-warning btn-lg btn-block" routerLink="/main">Log-In to Save</button>
   </div>
+  <div *ngIf="showSubmit()">
+      <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
+    </div>
+
 </div>
 
 <script>
