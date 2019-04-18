@@ -22,7 +22,7 @@ export class JackyViewComponent implements OnInit {
 	private names: string = '';
 	private queryNames: string = '';
 	private faveRecipes: Recipe[] = [];
-	private ingredients;
+	private ingredients = "";
 	rChecked = false;
 
 	regex = /,/g;
@@ -87,6 +87,7 @@ export class JackyViewComponent implements OnInit {
 				this.faveRecipes = this.faveRecipes.splice(index, 1);
 			}
 		}
+		console.log("CHECKING NAMES: " + this.names);
 		console.log("INGREDIENTS TO ATTACH TO OBJ: " + ingredients);
 		console.log("FAVES RECIPE ARRAY: " + JSON.stringify(this.faveRecipes));
 	}
