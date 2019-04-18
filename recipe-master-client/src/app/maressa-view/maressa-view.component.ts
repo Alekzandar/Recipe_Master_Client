@@ -35,18 +35,19 @@ export class MaressaViewComponent implements OnInit {
     //console.log("Value:" + this.loginForm.get('password').value);
     this.loginService.getUser(this.username).subscribe(
       userResponse => {
-        if (userResponse == null) {
-          this.badLogIn = true;
-          console.log("BAD LOGIN");
-        } else {
-          this.badLogIn = false;
-          this.responseUser = userResponse;
-          console.log("Retrieved User");
-          console.log(userResponse.id);
-          console.log("User's Username: " + userResponse.username);
-          console.log("User's Password: " + userResponse.password);
-          this.logIn();
-        }
+      if (userResponse) {
+        this.badLogIn = false;
+        this.responseUser = userResponse;
+        console.log("Retrieved User");
+        console.log(userResponse.id);
+        console.log("User's Username: " + userResponse.username);
+        console.log("User's Password: " + userResponse.password);
+        this.logIn();
+      }
+      else {
+        this.badLogIn = true;
+        console.log("BAD LOGIN");
+      }
       });
 
   }
