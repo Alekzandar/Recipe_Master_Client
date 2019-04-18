@@ -24,6 +24,7 @@ export class JackyViewComponent implements OnInit {
 	private faveRecipes: Recipe[] = [];
 	private ingredients = "";
 	rChecked = false;
+	private badLogIn = false;
 
 	regex = /,/g;
 	add: string = '%2C';
@@ -32,15 +33,25 @@ export class JackyViewComponent implements OnInit {
 	constructor(private queryService: QueryService, private logInServce: LogInService) { }
 
 	nameLoad(): void {
+		this.badLogIn = false;
 		this.queryNames = this.names.replace(this.regex, this.add);
 		console.log("OLD STRING: " + this.names);
 		console.log("NEW NAMES: " + this.queryNames);
-		this.recipeUrl += this.names;
-		console.log("afterRECIPE URL: " + this.recipeUrl);
-		this.queryService.getRecipes(this.recipeUrl).subscribe(
+		let url = this.recipeUrl + this.names;
+		console.log("afterRECIPE URL: " + url);
+		this.queryService.getRecipes(url).subscribe(
 			resp => {
-				this.recipesList = resp as Recipe[];
-				console.log(this.recipesList);
+				if(resp.length >= 1){
+					this.recipesList = resp as Recipe[];
+					console.log(this.recipesList);
+					this.names = '';					
+				}else{
+					this.badLogIn = true;
+					console.log("Bad input");
+					this.names = '';
+				}
+
+				
 				//console.log("MISSED INGREDIENTS FOR SECOND RECIPE: " + this.recipesList[1].missedIngredients[0].name);
 				//this.m = Object.values(this.recipesList.);
 			}
