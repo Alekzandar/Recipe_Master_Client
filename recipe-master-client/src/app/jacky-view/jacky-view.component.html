@@ -16,7 +16,7 @@
         <h3>{{recipe.title}}</h3>
         <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox>
         <img [src]="recipe.image" />
-        <h3>Missing Ingredients: {{recipe.missedIngredientCount}}</h3>
+        <h3>You'll Also Need: {{recipe.missedIngredientCount}}</h3>
         <article *ngFor="let missed of recipe.missedIngredients">
           <li>{{objectKeys(missed)}}</li>
         </article>

@@ -37,8 +37,8 @@ export class UserDashComponent implements OnInit {
     this.userRecipeService.getUserRecipes(userId).subscribe(
       resp => {
         this.userRecipes = resp as Recipe[];
-        console.log("Saved Recipes for User retrieved: " + this.userRecipes);
-        console.log("First Saved Recipe for User: " + this.userRecipes[0].title);
+        //console.log("Saved Recipes for User retrieved: " + this.userRecipes);
+        //console.log("First Saved Recipe for User: " + this.userRecipes[0].title);
         JSON.stringify(this.userRecipes);
         console.log("After Stringify for Datatables: " + this.userRecipes);
 
