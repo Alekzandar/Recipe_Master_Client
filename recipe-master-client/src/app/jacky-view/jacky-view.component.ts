@@ -33,6 +33,8 @@ export class JackyViewComponent implements OnInit {
 	constructor(private queryService: QueryService, private logInServce: LogInService) { }
 
 	nameLoad(): void {
+		this.badLogIn = false;
+		this.queryNames = ''; //empty the query on new search
 		this.queryNames = this.names.replace(this.regex, this.add);
 		console.log("OLD STRING: " + this.names);
 		console.log("NEW NAMES: " + this.queryNames);

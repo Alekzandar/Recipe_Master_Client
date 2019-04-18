@@ -94,6 +94,11 @@
         <button class="btn btn-outline-info" (click)="nameLoad()">Search Again</button>
       </div>
     </div>
+    <div class="alert alert-danger" *ngIf="badLogIn==true">
+        <strong>Warning! Invalid Format/Ingredients. 
+          Please use Comma-Separated Ingredients.
+        </strong>
+      </div>
   </div>
   <br>
   <div *ngIf="showSubmit() == false">
