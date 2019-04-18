@@ -1,19 +1,37 @@
 <div class="container">
   <div class="jumbotron">
-    <h2>
-      Try out our Recipe of the Day..!!
+    <h2 class="display-4 text-center">
+      Discover a New Recipe!
     </h2>
 
     <div *ngIf="randRecipeList">
       <p><b>Recipe Title: </b><br>{{ randRecipeList[0][0].title}}</p>
-      <img [src] = "randRecipeList[0][0].image" alt = "Random Recipe Img" crossorigin="anonymous">
+      <img [src]="randRecipeList[0][0].image" alt="Random Recipe Img" crossorigin="anonymous">
       <p><b>Preparation Time: </b><br>{{ randRecipeList[0][0].readyInMinutes}} Minutes</p>
       <p><b>Serving Size: </b><br>{{ randRecipeList[0][0].servings}}</p>
       <p><b>Instructions: </b><br> {{ randRecipeList[0][0].instructions}}</p>
 
+      <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <button class="btn btn-default" (click)="loadRandomRecipes()"> Try Another! </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <br>
+
+    <div *ngIf="!randRecipeList?.length">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <button class="btn btn-default" (click)="loadRandomRecipes()"> Recipe of the Day</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button class="btn btn-default" (click)="loadRandomRecipes()"> Recipe of the Day</button>
+  </div>
   </div>
   <hr>
   <app-jacky-view></app-jacky-view>
-</div>
