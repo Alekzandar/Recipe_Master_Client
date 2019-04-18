@@ -18,10 +18,11 @@ import { filter } from 'rxjs/operators';
 
 export class JackyViewComponent implements OnInit {
 	private recipesObs: Observable<Recipe[]>;
-	private recipesList: Recipe[];
+	private recipesList: Recipe[] = [];
 	private names: string = '';
 	private queryNames: string = '';
 	private faveRecipes: Recipe[] = [];
+	private ingredients;
 	rChecked = false;
 
 	regex = /,/g;

@@ -1,40 +1,63 @@
-<h2> Search for Recipes by Ingredients</h2>
+
 <!-- <ul>
   <li>Your Ingredients: {{ names|lowercase }} </li>
 </ul> -->
 <br>
-<label for = "search">Ingredients:</label>
-<input id = "search" type="text" [(ngModel)]="names">
-<br>
-<br>
-<button class="btn btn-info" (click)="nameLoad()">Search Recipes</button>
+
+<div *ngIf="recipesList?.length == 0">
+    <h2> Discover Recipes by Ingredients</h2>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+    </div>
+    <input id="search" type="text" [(ngModel)]="names" aria-label="Default" aria-describedby="inputGroup-sizing-default"
+      placeholder="What's in the Pantry?">
+  </div>
+  <button class="btn btn-outline-success" (click)="nameLoad()">Search Recipes</button>
+</div>
 
 <div class="container">
-  <div class = "row">
-  <ul class="recipes" *ngFor="let recipe of recipesList; let i = index">
-    <div class="col-md-6" *ngIf="recipesList?.length > 0" >
-        <h3>{{recipe.title}}</h3>
-        <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox>
-        <img [src]="recipe.image" />
-        <h3>You'll Also Need: {{recipe.missedIngredientCount}}</h3>
-        <article *ngFor="let missed of recipe.missedIngredients">
-          <li>{{objectKeys(missed)}}</li>
-        </article>
-        <hr>
+  <div class="recipes" *ngFor="let recipe of recipesList; let i = index">
+    <div class="card">
+      <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
+        <h5 class="card-title"> {{recipe.title}}</h5>
+      </mat-checkbox>
+      <img [src]="recipe.image" width="300" height="300" />
+      <h4>You'll Also Need: {{recipe.missedIngredientCount}}</h4>
+      <ul *ngFor="let missed of recipe.missedIngredients">
+        <li>{{objectKeys(missed)}}</li>
+      </ul>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="recipesList?.length > 0">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+          </div>
+          <input id="search" type="text" [(ngModel)]="names" aria-label="Default"
+            aria-describedby="inputGroup-sizing-default" placeholder="Try Something New">
+        </div>
       </div>
-  </ul>
-</div>
+      <div class="col">
+        <button class="btn btn-outline-info" (click)="nameLoad()">Search Again</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="showSubmit() == false">
+    <button class="btn btn-warning btn-lg btn-block" routerLink="/main">Log-In to Save</button>
+  </div>
+  <div *ngIf="showSubmit()">
+    <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
+  </div>
 </div>
 
-
-
-<br>
-<div *ngIf="showSubmit() == false">
-  <button class="btn btn-warning" routerLink="/main">Log-In to Save</button>
-</div>
-
-<div *ngIf="showSubmit()">
-  <button class="btn btn-success" (click)="saveFaveRecipes()">Save Favorites</button>
-</div>
 
 <router-outlet></router-outlet>

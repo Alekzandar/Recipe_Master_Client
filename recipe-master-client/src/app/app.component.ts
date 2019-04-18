@@ -26,6 +26,7 @@ export class AppComponent implements OnInit{
     sessionStorage.setItem('isLoggedIn', 'false');
     sessionStorage.removeItem('userID');
     sessionStorage.removeItem('username');
+    window.location.href = '/main';
   }
 
 
