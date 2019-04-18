@@ -1,60 +1,44 @@
-<p class="text-xl-left"></p>
-<p class="text-center">
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Registration</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <app-user-register></app-user-register>
-    </div>
-    <!-- <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-  </div> -->
-  </ng-template>
-  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Registration</button>
 
-  <ng-template #contenta let-modal>
-    <!-- <div class="modal-header"> -->
-    <!-- <h4 class="modal-title">Login</h4> -->
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <!-- </div> -->
-    <div class="modal-body">
-      <app-maressa-view></app-maressa-view>
-    </div>
-  </ng-template>
-  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentereda(contenta)">Login</button>
-</p>
+<div class="container"> 
+<div class="view overlay" data-jarallax='{"speed": 0.2}' style="background-image: url(https://cdn.hellofresh.com/us/cms/lentil/delicious/HF160909_ExtraShot_Global_Homepage_White_04_card_1023x650.jpg);">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h2 class="h1 h1-reponsive white-text font-up font-bold mb-3 wow fadeInDown" data-wow-delay="0.3s" style= "color: black" ><strong>Recipe Master</strong></h2>
+            <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+            <p class="font-up mb-5 white-text wow fadeInDown" data-wow-delay="0.4s" style= "color: black">People need to be, <em>but how can they possibly</em> when there isn’t a service
+              allowing them to search for recipes by ingredients and store their favorites?</p>
+              <p class="text-xl-left"></p>
+              <p class="text-center">
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Registration</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <app-user-register></app-user-register>
+                </div>
+              </ng-template>
+              <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Registration</button>
+              <ng-template #contenta let-modal>
 
-<div class="container">
-  <div class="row justify-content-start">
-    <div class="col-2">
-      People need to be,
-    </div>
-    <div class="col-2">
-        but how can they possibly
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-4">
-        when there isn’t a service
-      allowing them 
-    </div>
-  </div>
-  <div class="row justify-content-end">
-    <div class="col-2">
-        to search for recipes 
-    </div>
-    <div class="col-2">
-        by ingredients and store their favorites?
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                  <app-maressa-view></app-maressa-view>
+                </div>
+              </ng-template>
+              <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentereda(contenta)">Login</button>        
+            </p>
+            </div>
+        </div>
       </div>
+    </div>
   </div>
-  <hr>
-  <div class="row justify-content-around">
-      Published by Recipe Master Team
-  </div>
+</div>
 </div>
