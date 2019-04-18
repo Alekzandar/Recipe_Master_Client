@@ -1,18 +1,18 @@
 <div class="container">
   <div class="jumbotron">
-    <h3>
+    <h2>
       Try out our Recipe of the Day..!!
-    </h3>
+    </h2>
 
     <div *ngIf="randRecipeList">
-      <h3>Recipe Title: {{ randRecipeList[0][0].title}}</h3>
+      <p><b>Recipe Title: </b><br>{{ randRecipeList[0][0].title}}</p>
       <img [src] = "randRecipeList[0][0].image" alt = "Random Recipe Img" crossorigin="anonymous">
       <p><b>Preparation Time: </b><br>{{ randRecipeList[0][0].readyInMinutes}} Minutes</p>
       <p><b>Serving Size: </b><br>{{ randRecipeList[0][0].servings}}</p>
       <p><b>Instructions: </b><br> {{ randRecipeList[0][0].instructions}}</p>
 
     </div>
-    <button ng-show="ShowSave == 'display' ? true : false" class= "btn btn-success" (click)="loadRandomRecipes()">Load Recipe of the Day</button>
+    <button class="btn btn-default" (click)="loadRandomRecipes()"> Recipe of the Day</button>
   </div>
   <hr>
   <app-jacky-view></app-jacky-view>
