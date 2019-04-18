@@ -1,3 +1,4 @@
+import { LogInService } from './../services/login.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,13 +23,21 @@ export class MainViewComponent {
 
 	closeResult: string;
 
-	constructor(private modalService: NgbModal) {}
+	constructor(private modalService: NgbModal, private logInService: LogInService) {}
 
 	openVerticallyCentered(content) {
 		this.modalService.open(content, { centered: true, size: 'lg' });
   }
 	openVerticallyCentereda(contenta) {
 		this.modalService.open(contenta, { centered: true, size: 'lg' });
+  }
+  ngOnInit() { this.showLogOut(); }
+
+  ngDoCheck() { this.showLogOut();}
+
+	showLogOut(){
+    let status = this.logInService.loggedIn();
+    return status;
 	}
 }
 

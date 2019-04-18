@@ -10,8 +10,6 @@
             <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
             <p class="font-up mb-5 white-text wow fadeInDown" data-wow-delay="0.4s" style= "color: black">People need to be, <em>but how can they possibly</em> when there isn’t a service
               allowing them to search for recipes by ingredients and store their favorites?</p>
-              <p class="text-xl-left"></p>
-              <p class="text-center">
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title">Registration</h4>
@@ -33,8 +31,7 @@
                   <app-maressa-view></app-maressa-view>
                 </div>
               </ng-template>
-              <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentereda(contenta)">Login</button>        
-            </p>
+              <button *ngIf = "!showLogOut()" class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentereda(contenta)">Login</button>        
             </div>
         </div>
       </div>
