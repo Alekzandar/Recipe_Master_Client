@@ -40,7 +40,7 @@ export class JackyViewComponent implements OnInit {
 		console.log("afterRECIPE URL: " + this.recipeUrl);
 		this.queryService.getRecipes(this.recipeUrl).subscribe(
 			resp => {
-				if(resp){
+				if(resp.length >= 1){
 					this.recipesList = resp as Recipe[];
 					console.log(this.recipesList);
 				}else{
