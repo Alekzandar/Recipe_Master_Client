@@ -61,7 +61,7 @@ export class MaressaViewComponent implements OnInit {
         console.log("SETTING SESSION STORAGE");
         sessionStorage.setItem('userID', this.responseUser.id.toString());
         sessionStorage.setItem('username', this.responseUser.username.toString());
-        window.location.href = '/main';
+        window.location.href = '/recipe';
         return true;
       }
     } else {

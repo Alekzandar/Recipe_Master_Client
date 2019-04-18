@@ -4,10 +4,10 @@
   <table class="table table-hover" cellspacing="0">
     <thead>
       <tr>
-        <th>Title</th>
+        <th>Recipe</th>
         <th>Recipe Ingredients</th>
         <th>Make Me!</th>
-        <th>Load Recipes</th>
+        <th>Get Cooking</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
           <td>{{recipe.title}}</td>
           <td>{{recipe.ingredients}}</td>
           <td><img [src] = "recipe.image"></td>
-          <td><button (click)= "recipeDetail(recipe)">More Details</button></td>
+          <td><button class="btn btn-outline-warning" (click)= "recipeDetail(recipe)">More Details</button></td>
         </tr>
       </tbody>
     </table>

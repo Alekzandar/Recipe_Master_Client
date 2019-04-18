@@ -12,7 +12,9 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 
 const routes: Routes = [
-  { path: 'tawbin', component: TawbinViewComponent },
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '*', redirectTo: '/main', pathMatch: 'full' },
+  { path: 'recipe', component: TawbinViewComponent },
   { path: 'aleksandar', component: AleksandarViewComponent },
   { path: 'jacky', component: JackyViewComponent },
   { path: 'maressa', component: MaressaViewComponent },

@@ -3,7 +3,7 @@
 </ul> -->
 <br>
 
-<h3 class="display-4 text-center"> Discover Recipes by Ingredients</h3>
+<h3 class="display-4 text-center"> Discover Recipes by Ingredients & Variety</h3>
 
 <div *ngIf="recipesList?.length == 0">
   <div class="container">
@@ -14,8 +14,8 @@
             <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
           </div>
           <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
-          aria-describedby="inputGroup-sizing-default" placeholder="What's in the Pantry?"
-          data-toggle="tooltip" data-placement="top" title="Comma-separated Ingredients!">
+            aria-describedby="inputGroup-sizing-default" placeholder="What's in the Pantry?" data-toggle="tooltip"
+            data-placement="top" title="Comma-separated Ingredients!">
         </div>
       </div>
       <div class="col-xs-8">
@@ -23,10 +23,10 @@
       </div>
     </div>
     <div class="alert alert-danger" *ngIf="badLogIn==true">
-        <strong>Warning! Invalid Format/Ingredients. 
-          Please use Comma-Separated Ingredients.
-        </strong>
-      </div>
+      <strong>Warning! Invalid Format/Ingredients.
+        Please use Comma-Separated Ingredients.
+      </strong>
+    </div>
   </div>
   <hr>
 </div>
@@ -43,8 +43,10 @@
               <h3 class="card-title"> {{recipe.title}}</h3>
             </mat-checkbox>
             <img class="card-img-top" [src]="recipe.image" width="20rem" />
-            <h6 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More Ingredients
-            </h6>
+            <hr>
+            <h5 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More
+              Ingredients:
+            </h5>
             <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
               <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
             </ul>
@@ -60,8 +62,10 @@
               <h3 class="card-title"> {{recipe.title}}</h3>
             </mat-checkbox>
             <img class="card-img-top" [src]="recipe.image" width="20rem" />
-            <h6 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More Ingredients
-            </h6>
+            <hr>
+            <h5 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More
+              Ingredients:
+            </h5>
             <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
               <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
             </ul>
@@ -75,13 +79,6 @@
 
 <div *ngIf="recipesList?.length > 0">
 
-<<<<<<< HEAD
-=======
-  <br>
-  <div *ngIf="showSubmit()">
-    <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
-  </div>
->>>>>>> JackyDev
   <div class="container">
     <div class="row">
       <div class="col">
@@ -90,7 +87,7 @@
             <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
           </div>
           <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
-          aria-describedby="inputGroup-sizing-default" placeholder="Try Something New">
+            aria-describedby="inputGroup-sizing-default" placeholder="Try Something New">
         </div>
       </div>
       <div class="col-xs-8">
@@ -98,26 +95,28 @@
       </div>
     </div>
     <div class="alert alert-danger" *ngIf="badLogIn==true">
-        <strong>Warning! Invalid Format/Ingredients. 
-          Please use Comma-Separated Ingredients.
-        </strong>
-      </div>
+      <strong>Warning! Invalid Format/Ingredients.
+        Please use Comma-Separated Ingredients.
+      </strong>
+    </div>
   </div>
   <br>
   <div *ngIf="showSubmit() == false">
     <button class="btn btn-warning btn-lg btn-block" routerLink="/main">Log-In to Save</button>
   </div>
   <div *ngIf="showSubmit()">
-      <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
-    </div>
+    <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
+  </div>
 
 </div>
 
 <script>
-  $(document).tooltip({ selector: "[title]",
+  $(document).tooltip({
+    selector: "[title]",
     placement: "top",
     trigger: "focus",
-    animation: true}); 
+    animation: true
+  });
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
