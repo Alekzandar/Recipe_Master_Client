@@ -31,9 +31,8 @@ export class JackyViewComponent implements OnInit {
 	constructor(private queryService: QueryService, private logInServce: LogInService) { }
 
 	nameLoad(): void {
-		console.log("IN FUNCTION");
-		console.log("OLD STRING: " + this.names);
 		this.queryNames = this.names.replace(this.regex, this.add);
+		console.log("OLD STRING: " + this.names);
 		console.log("NEW NAMES: " + this.queryNames);
 		this.recipeUrl += this.names;
 		console.log("afterRECIPE URL: " + this.recipeUrl);
@@ -74,9 +73,9 @@ export class JackyViewComponent implements OnInit {
 		ingredients += this.queryNames;
 		faveRecipe.ingredients = ingredients;
 		let userId: number = parseInt(sessionStorage.getItem('userID'));
-		console.log("User ID: " + userId);
+		//console.log("User ID: " + userId);
 		faveRecipe.user.id = userId;
-		console.log(JSON.stringify(faveRecipe));
+		//console.log(JSON.stringify(faveRecipe));
 		//console.log("STARTING FAVE LIST: " + this.faveRecipes + " OF TYPE: " + typeof(this.faveRecipes));
 		if (event.checked) {
 			this.faveRecipes.push(faveRecipe);
@@ -87,6 +86,7 @@ export class JackyViewComponent implements OnInit {
 				this.faveRecipes = this.faveRecipes.splice(index, 1);
 			}
 		}
+		console.log("INGREDIENTS TO ATTACH TO OBJ: " + ingredients);
 		console.log("FAVES RECIPE ARRAY: " + JSON.stringify(this.faveRecipes));
 	}
 

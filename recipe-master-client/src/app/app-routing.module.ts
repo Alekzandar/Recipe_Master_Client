@@ -5,7 +5,7 @@ import { AleksandarViewComponent }      from './aleksandar-view/aleksandar-view.
 import { JackyViewComponent }      from './jacky-view/jacky-view.component';
 import { MaressaViewComponent }      from './maressa-view/maressa-view.component';
 import { TestServerComponent }      from './test-server/test-server.component';
-
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { MainViewComponent }      from './main-view/main-view.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'test', component: TestServerComponent },
   { path: 'registration', component: UserRegisterComponent },
   { path: 'user-dash', component: UserDashComponent },
-  { path: 'main', component: MainViewComponent }
-
+  { path: 'main', component: MainViewComponent },
+  { path: 'detail', component: RecipeDetailComponent}
 ];
 
 @NgModule({

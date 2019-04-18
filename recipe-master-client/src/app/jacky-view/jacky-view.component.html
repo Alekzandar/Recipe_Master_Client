@@ -1,29 +1,29 @@
 <h2> Search for Recipes by Ingredients</h2>
-<ul>
+<!-- <ul>
   <li>Your Ingredients: {{ names|lowercase }} </li>
-</ul>
+</ul> -->
 <br>
-<input type="text" [(ngModel)]="names">
+<label for = "search">Ingredients:</label>
+<input id = "search" type="text" [(ngModel)]="names">
 <br>
 <br>
 <button class="btn btn-info" (click)="nameLoad()">Search Recipes</button>
 
 <div class="container">
-
+  <div class = "row">
   <ul class="recipes" *ngFor="let recipe of recipesList; let i = index">
-    <div *ngIf="recipesList?.length > 0">
-      <div class="col-md-6">
+    <div class="col-md-6" *ngIf="recipesList?.length > 0" >
         <h3>{{recipe.title}}</h3>
         <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">{{recipe.title}}</mat-checkbox>
         <img [src]="recipe.image" />
-        <h3>Missing Ingredients: {{recipe.missedIngredientCount}}</h3>
+        <h3>You'll Also Need: {{recipe.missedIngredientCount}}</h3>
         <article *ngFor="let missed of recipe.missedIngredients">
           <li>{{objectKeys(missed)}}</li>
         </article>
         <hr>
       </div>
-    </div>
   </ul>
+</div>
 </div>
 
 
