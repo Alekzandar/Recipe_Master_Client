@@ -27,7 +27,7 @@ export class JackyViewComponent implements OnInit {
 
 	regex = /,/g;
 	add: string = '%2C';
-	private recipeUrl: string = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=';
+	private recipeUrl: string = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=';
 
 	constructor(private queryService: QueryService, private logInServce: LogInService) { }
 

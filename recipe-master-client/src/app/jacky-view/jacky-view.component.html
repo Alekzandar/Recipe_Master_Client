@@ -1,36 +1,71 @@
-
 <!-- <ul>
   <li>Your Ingredients: {{ names|lowercase }} </li>
 </ul> -->
 <br>
 
+<h3 class="display-4 text-center"> Discover Recipes by Ingredients</h3>
+
 <div *ngIf="recipesList?.length == 0">
-    <h2> Discover Recipes by Ingredients</h2>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
+          </div>
+          <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
+            aria-describedby="inputGroup-sizing-default" placeholder="What's in the Pantry?">
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <button class="btn btn-outline-success" (click)="nameLoad()">Find Recipes</button>
+      </div>
     </div>
-    <input id="search" type="text" [(ngModel)]="names" aria-label="Default" aria-describedby="inputGroup-sizing-default"
-      placeholder="What's in the Pantry?">
   </div>
-  <button class="btn btn-outline-success" (click)="nameLoad()">Search Recipes</button>
+  <hr>
 </div>
 
-<div class="container">
-  <div class="recipes" *ngFor="let recipe of recipesList; let i = index">
-    <div class="card">
-      <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
-        <h5 class="card-title"> {{recipe.title}}</h5>
-      </mat-checkbox>
-      <img [src]="recipe.image" width="300" height="300" />
-      <h4>You'll Also Need: {{recipe.missedIngredientCount}}</h4>
-      <ul *ngFor="let missed of recipe.missedIngredients">
-        <li>{{objectKeys(missed)}}</li>
-      </ul>
-      <hr>
+
+<!-- RECIPE CARDS -->
+<div class="recipes" *ngFor="let recipe of recipesList; let i = index" style="display: inline-block">
+  <div class="row">
+    <div *ngIf="i%2==0">
+      <div class="col-6">
+        <div class="card bg-info text-white" style="width: 35rem; margin: 1rem">
+            <div class="card-body">
+          <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
+            <h3 class="card-title"> {{recipe.title}}</h3>
+          </mat-checkbox>
+          <img class="card-img-top" [src]="recipe.image" width="20rem" />
+          <h6 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More Ingredients
+          </h6>
+          <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
+            <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div *ngIf="i%2==1">
+      <div class="col-6">
+        <div class="card bg-info text-white" style="width: 35rem;  margin: 1rem">
+            <div class="card-body">
+          <mat-checkbox unchecked="true" (change)="onCheckboxChagen($event, recipe, i)">
+              <h3 class="card-title"> {{recipe.title}}</h3>
+          </mat-checkbox>
+          <img class="card-img-top" [src]="recipe.image" width="20rem" />
+          <h6 class="card-subtitle mb-3 text-black-50">You'll Also Need {{recipe.missedIngredientCount}} More Ingredients
+          </h6>
+          <ul class="list-group list-group-flush" *ngFor="let missed of recipe.missedIngredients">
+            <li class="list-group-item text-info shadow">{{objectKeys(missed)}}</li>
+          </ul>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 <div *ngIf="recipesList?.length > 0">
   <br>
@@ -41,11 +76,11 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">Ingredients</span>
           </div>
-          <input id="search" type="text" [(ngModel)]="names" aria-label="Default"
+          <input class="form-control" id="search" type="text" [(ngModel)]="names" aria-label="Default"
             aria-describedby="inputGroup-sizing-default" placeholder="Try Something New">
         </div>
       </div>
-      <div class="col">
+      <div class="col-xs-8">
         <button class="btn btn-outline-info" (click)="nameLoad()">Search Again</button>
       </div>
     </div>
@@ -58,6 +93,7 @@
     <button class="btn btn-success btn-lg btn-block" (click)="saveFaveRecipes()">Save Favorites</button>
   </div>
 </div>
+
 
 
 <router-outlet></router-outlet>
