@@ -34,20 +34,21 @@ export class JackyViewComponent implements OnInit {
 
 	nameLoad(): void {
 		this.badLogIn = false;
-		this.queryNames = ''; //empty the query on new search
 		this.queryNames = this.names.replace(this.regex, this.add);
 		console.log("OLD STRING: " + this.names);
 		console.log("NEW NAMES: " + this.queryNames);
-		this.recipeUrl += this.names;
-		console.log("afterRECIPE URL: " + this.recipeUrl);
-		this.queryService.getRecipes(this.recipeUrl).subscribe(
+		let url = this.recipeUrl + this.names;
+		console.log("afterRECIPE URL: " + url);
+		this.queryService.getRecipes(url).subscribe(
 			resp => {
 				if(resp.length >= 1){
 					this.recipesList = resp as Recipe[];
 					console.log(this.recipesList);
+					this.names = '';					
 				}else{
 					this.badLogIn = true;
 					console.log("Bad input");
+					this.names = '';
 				}
 
 				
