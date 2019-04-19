@@ -22,13 +22,13 @@ export class UserDashComponent implements OnInit {
   recipeId: string;
   //title ; ingredients ; detail button
 
-  constructor(private userRecipeService: UserRecipesService, private data: DataService, public router: Router) { }
+  constructor(private userRecipeService: UserRecipesService, public router: Router) { }
 
 
 
   ngOnInit() {
     this.getUserRecipes();
-    this.data.currentId.subscribe(id => this.recipeId = id);
+    //this.data.currentId.subscribe(id => this.recipeId = id);
   }
 
   getUserRecipes(){
@@ -58,6 +58,6 @@ export class UserDashComponent implements OnInit {
 
   sendRecipeId(){
     console.log("UPDATING SIBLING: " + this.recipeId);
-    this.data.changeMessage(this.recipeId);
+    //this.data.changeMessage(this.recipeId);
   }
 }

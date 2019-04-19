@@ -4,6 +4,8 @@ import { UserDashComponent } from '../user-dash/user-dash.component';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { User } from '../objects/User';
+import { Recipe } from '../objects/recipe';
 
 
 @Component({
@@ -12,11 +14,9 @@ import { map } from 'rxjs/operators';
 	styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-	constructor(private detailService: DetailService, private data: DataService, public activatedRoute: ActivatedRoute) { }
+	constructor(private detailService: DetailService, public activatedRoute: ActivatedRoute) { }
 
 	private recipeId;
-
-	private id: string = '289101';
 
 	private recipe;
 	private recipeTitle;
@@ -85,13 +85,36 @@ export class RecipeDetailComponent implements OnInit {
 			})
 	}
 
+	removeRecipe(){
+		let user = { 
+			id : 0,
+			faveRecipes : []
+		}
+		user.faveRecipes = [];
+		user.id = parseInt(sessionStorage.getItem('userID'));
+		let recipetoRemove: Recipe = new Recipe();
+		recipetoRemove.id = this.recipeId;
+		user.faveRecipes.push(recipetoRemove);
+
+		let stringUser = JSON.stringify(user);
+		console.log("READY FOR REMOVAL: " + stringUser );
+		this.detailService.patchRecipe(user).subscribe(
+			resp => {
+				if (resp != null){
+					console.log("Successfully removed from user");
+					window.location.href = '/user-dash';
+				}
+			}
+		);
+	}
+
 
 	ngOnInit() {
 		this.recipeId = this.activatedRoute.paramMap
 			.pipe(map(() => window.history.state))
-		console.log("RECIPE ID: " + window.history.state.id);
+		//console.log("RECIPE ID: " + window.history.state.id);
 		this.recipeId = window.history.state.id;
-		console.log("RECIPE ID IN DETAIL: " + this.recipeId);
+		//console.log("RECIPE ID IN DETAIL: " + this.recipeId);
 		this.getDetails();
 	}
 

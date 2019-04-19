@@ -6,3 +6,11 @@
   display: -ms-flexbox!important;
   display: flex!important;
 }
+
+
+
+#removebutton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}

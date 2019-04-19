@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let recipe of userRecipes">
-          <td>{{recipe.title}}</td>
+          <td><b>{{recipe.title}}</b></td>
           <td>{{recipe.ingredients}}</td>
           <td><img [src] = "recipe.image"></td>
           <td><button class="btn btn-outline-warning" (click)= "recipeDetail(recipe)">More Details</button></td>
