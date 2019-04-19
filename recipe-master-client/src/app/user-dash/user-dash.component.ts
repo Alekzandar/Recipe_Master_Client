@@ -52,12 +52,7 @@ export class UserDashComponent implements OnInit {
     console.log("CLICKED MORE DETAILS FOR: " + recipe.id);
     this.recipeId = recipe.id;
     console.log("RECIPE ID TO PASS:" + this.recipeId);
-    this.sendRecipeId();
     this.router.navigateByUrl('/detail', { state: { id: this.recipeId } });
   }
-
-  sendRecipeId(){
-    console.log("UPDATING SIBLING: " + this.recipeId);
-    //this.data.changeMessage(this.recipeId);
-  }
+  
 }

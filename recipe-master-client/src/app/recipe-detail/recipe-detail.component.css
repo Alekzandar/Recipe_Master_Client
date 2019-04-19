@@ -7,10 +7,13 @@
   display: flex!important;
 }
 
-
-
+#alert{
+  position: absolute;
+  bottom: -5px;
+  right: 50px;
+}
 #removebutton {
-  position: fixed;
-  bottom: 50px;
+  position: absolute;
+  bottom: 25px;
   right: 50px;
 }

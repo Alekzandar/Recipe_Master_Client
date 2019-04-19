@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DetailService } from './../services/detail.service';
 import { UserDashComponent } from '../user-dash/user-dash.component';
@@ -17,6 +18,8 @@ export class RecipeDetailComponent implements OnInit {
 	constructor(private detailService: DetailService, public activatedRoute: ActivatedRoute) { }
 
 	private recipeId;
+	private nullResp: boolean = true;
+
 
 	private recipe;
 	private recipeTitle;
@@ -104,7 +107,11 @@ export class RecipeDetailComponent implements OnInit {
 					console.log("Successfully removed from user");
 					window.location.href = '/user-dash';
 				}
-			}
+
+				},
+				error => {
+					this.nullResp = true;
+				}
 		);
 	}
 
@@ -116,6 +123,7 @@ export class RecipeDetailComponent implements OnInit {
 		this.recipeId = window.history.state.id;
 		//console.log("RECIPE ID IN DETAIL: " + this.recipeId);
 		this.getDetails();
+		this.nullResp = false;
 	}
 
 }

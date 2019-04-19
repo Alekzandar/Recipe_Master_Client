@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class JackyViewComponent implements OnInit {
 	add: string = '%2C';
 	private recipeUrl: string = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=';
 
-	constructor(private queryService: QueryService, private logInServce: LogInService) { }
+	constructor(private queryService: QueryService, private logInServce: LogInService, public router: Router) { }
 
 	nameLoad(): void {
 		this.badLogIn = false;
@@ -119,6 +120,13 @@ export class JackyViewComponent implements OnInit {
 		let status = this.logInServce.loggedIn();
 		return status;
 	}
+
+	getDetails(recipe){
+		console.log("CLICKED MORE DETAILS FOR: " + recipe.id);
+		let recipeId = recipe.id;
+		console.log("RECIPE ID TO PASS:" + recipeId);
+		this.router.navigateByUrl('/detail', { state: { id: recipeId } });
+	  }
 
 
 	ngOnInit() {

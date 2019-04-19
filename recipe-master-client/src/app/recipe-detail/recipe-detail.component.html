@@ -39,6 +39,11 @@
 	</div>
 
 	<div id="removebutton">
-		<button class="btn btn-outline-danger" (click) = "removeRecipe()">Remove from Saved</button>
+		<button class="btn btn-outline-danger" (click)="removeRecipe()" *ngIf="!nullResp">Remove from Saved</button>
+		<div id = "alert" class="alert alert-danger" *ngIf="nullResp">
+			<strong>Return to Recipe Dashboard and Save First</strong>
+			<button class="btn btn-outline-danger" (click)="removeRecipe()" routerLink='/recipe'>Recipe Dash</button>
+		</div>
 	</div>
+
 </section>

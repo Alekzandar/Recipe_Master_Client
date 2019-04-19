@@ -1,1 +1,8 @@
+h3{
+    word-wrap: break-word;
+}
 
+.recipes{ 
+    margin:auto;
+    margin-left: 5rem;
+}
